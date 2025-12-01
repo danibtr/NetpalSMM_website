@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | NetPal SMM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo-netpal-smm.png" type="image/png" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Main Style -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <div class="logo-area">
+        <img src="images/logo-netpal-smm.png" alt="NetPal SMM Logo" />
+        <span>NetPal SMM</span>
+      </div>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Plans</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+
+      <div class="header-cta">
+        <!-- زر تبديل الثيم (فاتح / غامق) -->
+        <button id="themeToggle" class="btn-outline" type="button">
+          <i class="fa-solid fa-moon"></i>
+          Theme
+        </button>
+
+        <a href="https://wa.me/963993841762" target="_blank" class="btn-primary">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp
+        </a>
+      </div>
+
+      <!-- Burger menu للموبايل -->
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTACT SECTION -->
+  <main id="contact" class="section">
+    <div class="container reveal">
+      <div class="section-header">
+        <h1>Contact Us</h1>
+        <p>Tell us about your SMM panel and we’ll help you build the perfect marketing plan.</p>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-wrapper">
+        <!-- معلومات التواصل -->
+        <div class="contact-info">
+          <h2>Let’s grow your SMM panel</h2>
+          <p>
+            Reach out via WhatsApp or send us a message. We usually reply within a few hours.
+          </p>
+
+          <a href="https://wa.me/963993841762" target="_blank" class="btn-primary" style="margin-bottom: 16px;">
+            <i class="fa-brands fa-whatsapp"></i>
+            Chat on WhatsApp
+          </a>
+
+          <h3 style="margin-top: 24px; font-size: 1rem;">Social media</h3>
+          <div class="contact-links">
+            <a href="https://t.me/net_pal" target="_blank" class="contact-btn">
+              <i class="fa-brands fa-telegram"></i> Telegram
+            </a>
+            <a href="https://instagram.com/net.pal22" target="_blank" class="contact-btn">
+              <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.facebook.com/share/19sGfeEVo9/" target="_blank" class="contact-btn btn-facebook">
+              <i class="fa-brands fa-facebook-f"></i> Facebook
+            </a>
+          </div>
+        </div>
+
+        <!-- فورم تواصل -->
+        <form class="contact-form" id="contactForm">
+          <label for="name">Full name</label>
+          <input id="name" type="text" placeholder="Enter your name" required />
+
+          <label for="email">Email address</label>
+          <input id="email" type="email" placeholder="Enter your email" required />
+
+          <label for="panel">SMM Panel URL</label>
+          <input id="panel" type="text" placeholder="e.g. bestpanel.com" />
+
+          <label for="msg">How can we help you?</label>
+          <textarea id="msg" placeholder="Tell us about the countries you target, budget, services you need..." required></textarea>
+
+          <button class="btn-primary" type="submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <p>All rights reserved &copy; 2025 – <strong>NetPal SMM</strong></p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS (مبسّطة) -->
+  <script>
+    // Burger menu (موبايل)
+    const burger = document.getElementById('burgerBtn');
+    const nav = document.getElementById('mainNav');
+    if (burger && nav) {
+      burger.addEventListener('click', () => {
+        nav.classList.toggle('open');
+      });
+    }
+
+    // Theme toggle (Light / Dark) – يعتمد على CSS variables في style.css
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(theme) {
+      if (!root) return;
+      if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+      } else {
+        root.setAttribute('data-theme', 'dark');
+      }
+      localStorage.setItem('theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') || 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    }
+
+    // فورم بسيط (بدون إرسال حقيقي، بس رسالة نجاح)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Your message has been received ✅');
+        contactForm.reset();
+      });
+    }
+
+    // Animation ظهور
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    reveals.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
