@@ -1,6 +1,4 @@
-/* =========================
-   RESET + أساسيات
-========================= */
+/* ========== RESET ========== */
 *,
 *::before,
 *::after {
@@ -15,24 +13,43 @@ html {
 
 body {
   font-family: "Baloo Bhaijaan 2", system-ui, -apple-system, sans-serif;
-  background: radial-gradient(circle at top, #040b18 0, #000000 55%);
-  color: #ffffff;
   direction: rtl;
 }
 
-/* ألوان الهوية */
+/* ========== THEME VARIABLES ========== */
 :root {
-  --color-primary: #007CB6;       /* الأزرق الفاتح */
-  --color-primary-dark: #002F7A;  /* الأزرق الغامق */
-  --color-bg: #02040a;
-  --color-card-bg: #050915;
-  --color-text-main: #ffffff;
-  --color-text-muted: #9ba1aa;
+  --color-primary: #007CB6;
+  --color-primary-dark: #002F7A;
+
+  --bg-main: #02040a;
+  --bg-card: #050915;
+  --bg-header: rgba(0, 0, 0, 0.9);
+  --bg-section-grad: radial-gradient(circle at top, rgba(0, 124, 182, 0.25), transparent 55%);
+  --border-soft: rgba(255, 255, 255, 0.06);
+  --text-main: #ffffff;
+  --text-muted: #9ba1aa;
+
   --radius-lg: 18px;
   --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
 }
 
-/* عناصر عامة */
+/* Light theme override */
+:root[data-theme="light"] {
+  --bg-main: #f5f7fb;
+  --bg-card: #ffffff;
+  --bg-header: rgba(255, 255, 255, 0.9);
+  --bg-section-grad: radial-gradient(circle at top, rgba(0, 124, 182, 0.08), #f5f7fb 60%);
+  --border-soft: rgba(15, 23, 42, 0.08);
+  --text-main: #111827;
+  --text-muted: #6b7280;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Common layout */
 .container {
   width: min(1200px, 100% - 32px);
   margin-inline: auto;
@@ -53,7 +70,7 @@ body {
 
 .section-header p {
   margin-top: 8px;
-  color: var(--color-text-muted);
+  color: var(--text-muted);
 }
 
 .section-line {
@@ -64,18 +81,18 @@ body {
   margin: 16px auto 0;
 }
 
-/* أزرار */
+/* Buttons */
 .btn-primary,
 .btn-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 26px;
+  padding: 10px 22px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
   text-decoration: none;
   white-space: nowrap;
@@ -95,23 +112,34 @@ body {
 .btn-outline {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  color: #fff;
+  color: var(--text-main);
+}
+
+:root[data-theme="light"] .btn-outline {
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .btn-outline:hover {
   background: rgba(255, 255, 255, 0.07);
 }
 
-/* =========================
-   الهيدر
-========================= */
+:root[data-theme="light"] .btn-outline:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+/* ========== HEADER ========== */
 .main-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(0, 0, 0, 0.88);
+  background: var(--bg-header);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .header-inner {
@@ -119,7 +147,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 12px 0;
+  padding: 10px 0;
 }
 
 .logo-area {
@@ -129,13 +157,13 @@ body {
 }
 
 .logo-area img {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
 .logo-area span {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
@@ -146,9 +174,9 @@ body {
 }
 
 .main-nav a {
-  color: var(--color-text-muted);
+  color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   position: relative;
 }
 
@@ -165,7 +193,7 @@ body {
 }
 
 .main-nav a:hover {
-  color: #fff;
+  color: var(--text-main);
 }
 
 .main-nav a:hover::after {
@@ -178,22 +206,37 @@ body {
   gap: 10px;
 }
 
-/* موبايل منيو */
+/* Theme toggle button */
+.theme-toggle {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+/* Burger (mobile menu) */
 .burger {
   display: none;
   width: 32px;
   height: 32px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid var(--border-soft);
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background: transparent;
 }
 
 .burger span {
   width: 18px;
   height: 2px;
-  background: #fff;
+  background: var(--text-main);
   position: relative;
 }
 
@@ -204,7 +247,7 @@ body {
   right: 0;
   width: 18px;
   height: 2px;
-  background: #fff;
+  background: var(--text-main);
 }
 
 .burger span::before {
@@ -215,17 +258,18 @@ body {
   top: 6px;
 }
 
+/* Mobile nav */
 @media (max-width: 800px) {
   .main-nav {
     position: fixed;
     inset-inline: 0;
     top: 60px;
-    background: #040712;
+    background: var(--bg-main);
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
     padding: 14px 20px 18px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid var(--border-soft);
     transform: translateY(-140%);
     opacity: 0;
     pointer-events: none;
@@ -244,7 +288,7 @@ body {
   }
 
   .header-cta {
-    display: none;
+    gap: 8px;
   }
 
   .burger {
@@ -252,12 +296,10 @@ body {
   }
 }
 
-/* =========================
-   الهيرو
-========================= */
+/* ========== HERO ========== */
 .hero {
   padding: 90px 0 80px;
-  background: radial-gradient(circle at top, rgba(0, 124, 182, 0.25), transparent 55%);
+  background: var(--bg-section-grad);
 }
 
 .hero-inner {
@@ -273,11 +315,15 @@ body {
   gap: 8px;
   padding: 6px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--border-soft);
   background: rgba(4, 9, 20, 0.9);
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  color: var(--text-muted);
   margin-bottom: 14px;
+}
+
+:root[data-theme="light"] .hero-badge {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .hero-title {
@@ -287,8 +333,8 @@ body {
 }
 
 .hero-sub {
-  color: var(--color-text-muted);
-  font-size: 1.05rem;
+  color: var(--text-muted);
+  font-size: 0.98rem;
   margin-bottom: 24px;
 }
 
@@ -302,13 +348,13 @@ body {
 .hero-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
+  gap: 16px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
 }
 
 .hero-meta span strong {
-  color: #fff;
+  color: var(--text-main);
 }
 
 .hero-media {
@@ -316,11 +362,11 @@ body {
 }
 
 .hero-card {
-  background: linear-gradient(145deg, #050915, #02040a);
+  background: var(--bg-card);
   border-radius: 24px;
   padding: 20px;
   box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-soft);
 }
 
 .hero-card-header {
@@ -328,7 +374,7 @@ body {
   justify-content: space-between;
   margin-bottom: 12px;
   font-size: 0.8rem;
-  color: var(--color-text-muted);
+  color: var(--text-muted);
 }
 
 .hero-service-list {
@@ -339,11 +385,15 @@ body {
 
 .hero-service-item {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 2px;
   background: rgba(255, 255, 255, 0.02);
   padding: 8px 10px;
   border-radius: 14px;
+}
+
+:root[data-theme="light"] .hero-service-item {
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .hero-service-item span {
@@ -351,7 +401,7 @@ body {
 }
 
 .hero-service-item small {
-  color: var(--color-text-muted);
+  color: var(--text-muted);
   font-size: 0.78rem;
 }
 
@@ -366,9 +416,7 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-/* =========================
-   الخدمات
-========================= */
+/* ========== SERVICES ========== */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -376,14 +424,15 @@ body {
 }
 
 .service-card {
-  background: var(--color-card-bg);
+  background: var(--bg-card);
   border-radius: var(--radius-lg);
   padding: 18px 18px 20px;
   box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-soft);
   display: flex;
   flex-direction: column;
   gap: 8px;
+  position: relative;
 }
 
 .service-icon {
@@ -399,39 +448,62 @@ body {
 
 .service-icon i {
   font-size: 1.1rem;
+  color: #fff;
 }
 
 .service-card h3 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .service-card p {
-  font-size: 0.92rem;
-  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
 .service-meta {
-  margin-top: 6px;
+  margin-top: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.86rem;
-  color: var(--color-text-muted);
+  color: var(--text-muted);
 }
 
-.service-meta strong {
-  color: #fff;
+.service-badge {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(0, 124, 182, 0.2);
+  color: #e0f4ff;
+}
+
+:root[data-theme="light"] .service-badge {
+  background: rgba(0, 124, 182, 0.12);
+  color: #065986;
 }
 
 .service-actions {
   margin-top: 10px;
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
-/* =========================
-   الجاليري
-========================= */
+/* Loading text */
+.loading-text {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.loading-text.error {
+  color: #f87171;
+}
+
+/* ========== GALLERY ========== */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -454,7 +526,7 @@ body {
 }
 
 .gallery-item::after {
-  content: "مشاهدة الحملة";
+  content: "View campaign";
   position: absolute;
   inset: auto 8px 8px 8px;
   padding: 4px 8px;
@@ -476,9 +548,7 @@ body {
   transform: translateY(0);
 }
 
-/* =========================
-   الباقات
-========================= */
+/* ========== PRICING ========== */
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -486,11 +556,11 @@ body {
 }
 
 .price-card {
-  background: var(--color-card-bg);
+  background: var(--bg-card);
   border-radius: var(--radius-lg);
   padding: 22px 20px 20px;
   box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-soft);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -505,88 +575,53 @@ body {
   position: absolute;
   top: 12px;
   left: 18px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   padding: 4px 10px;
   border-radius: 999px;
   background: rgba(0, 124, 182, 0.16);
   color: #8ed8ff;
 }
 
+:root[data-theme="light"] .price-badge {
+  background: rgba(0, 124, 182, 0.12);
+  color: #065986;
+}
+
 .price-card h3 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .price-amount {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
 .price-amount span {
   font-size: 0.9rem;
-  color: var(--color-text-muted);
+  color: var(--text-muted);
 }
 
 .price-list {
   margin-top: 4px;
   list-style: none;
   font-size: 0.9rem;
-  color: var(--color-text-muted);
+  color: var(--text-muted);
 }
 
 .price-list li {
   margin-bottom: 4px;
 }
 
-/* =========================
-   آراء العملاء
-========================= */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.test-card {
-  background: var(--color-card-bg);
-  border-radius: var(--radius-lg);
-  padding: 18px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: var(--shadow-soft);
-  font-size: 0.9rem;
-}
-
-.test-card p {
-  color: var(--color-text-muted);
-  margin-bottom: 10px;
-}
-
-.test-user {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.test-user span {
-  font-size: 0.86rem;
-}
-
-.stars {
-  color: #ffce53;
-  font-size: 0.85rem;
-}
-
-/* =========================
-   تواصل + سوشال
-========================= */
+/* ========== CONTACT ========== */
 .contact-wrapper {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 30px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .contact-info p {
-  color: var(--color-text-muted);
+  color: var(--text-muted);
   margin-bottom: 14px;
 }
 
@@ -601,34 +636,30 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: 8px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid var(--border-soft);
   text-decoration: none;
-  color: #fff;
-  font-size: 0.92rem;
-}
-
-.contact-btn i {
-  font-size: 1rem;
+  color: var(--text-main);
+  font-size: 0.9rem;
 }
 
 .btn-facebook {
   background: #1877f2;
   border-color: #1877f2;
+  color: #fff;
 }
 
-/* فورم بسيط */
 .contact-form {
-  background: var(--color-card-bg);
+  background: var(--bg-card);
   padding: 18px 18px 20px;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-soft);
   box-shadow: var(--shadow-soft);
 }
 
 .contact-form label {
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   margin-bottom: 4px;
   display: block;
 }
@@ -636,14 +667,14 @@ body {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 10px 12px;
+  padding: 9px 12px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #02040a;
-  color: #fff;
+  border: 1px solid var(--border-soft);
+  background: transparent;
+  color: var(--text-main);
   margin-bottom: 10px;
   font-family: inherit;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 
 .contact-form textarea {
@@ -651,20 +682,16 @@ body {
   min-height: 90px;
 }
 
-/* =========================
-   الفوتر
-========================= */
+/* ========== FOOTER ========== */
 .main-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--border-soft);
   padding: 18px 0 22px;
   text-align: center;
   font-size: 0.9rem;
-  color: var(--color-text-muted);
+  color: var(--text-muted);
 }
 
-/* =========================
-   أنيميشن ظهور عند التمرير
-========================= */
+/* ========== REVEAL ANIMATION ========== */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -676,9 +703,7 @@ body {
   transform: translateY(0);
 }
 
-/* =========================
-   ريسبونسف
-========================= */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 1024px) {
   .hero-inner,
   .contact-wrapper {
@@ -690,12 +715,11 @@ body {
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .services-grid,
-  .pricing-grid,
-  .testimonials-grid {
+  .pricing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -707,7 +731,6 @@ body {
 
   .services-grid,
   .pricing-grid,
-  .testimonials-grid,
   .gallery-grid {
     grid-template-columns: 1fr;
   }

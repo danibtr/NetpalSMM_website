@@ -1,0 +1,77 @@
+[
+  {
+    "id": "whatsapp_bulk",
+    "title": "WhatsApp Bulk Messaging",
+    "price": "From $50",
+    "description": "Send targeted WhatsApp campaigns to thousands of users in your niche.",
+    "icon": "fa-brands fa-whatsapp",
+    "category": "WhatsApp",
+    "badge": "Popular",
+    "features": [
+      "High-volume sending with smart throttling.",
+      "Target by country, language, or segment.",
+      "Professional message templates and media.",
+      "Delivery and engagement overview."
+    ]
+  },
+  {
+    "id": "whatsapp_groups",
+    "title": "WhatsApp Group Promotion",
+    "price": "Custom",
+    "description": "Grow your WhatsApp groups with real, engaged users.",
+    "icon": "fa-solid fa-users",
+    "category": "WhatsApp",
+    "badge": "Growth",
+    "features": [
+      "Invite users into your groups or communities.",
+      "Targeted audiences based on niche.",
+      "Best for community-based projects and SMM panels.",
+      "Optional content management support."
+    ]
+  },
+  {
+    "id": "telegram_bulk",
+    "title": "Telegram Bulk & Groups",
+    "price": "From $60",
+    "description": "Promote your offers in active Telegram channels and groups.",
+    "icon": "fa-brands fa-telegram",
+    "category": "Telegram",
+    "badge": "New",
+    "features": [
+      "Promotion in niche-specific channels and groups.",
+      "Flexible campaign schedule.",
+      "Tracking for clicks and joins where possible.",
+      "Good for crypto, tech, and SMM panels."
+    ]
+  },
+  {
+    "id": "youtube_views",
+    "title": "YouTube Views Campaigns",
+    "price": "From $40",
+    "description": "Run YouTube view and awareness campaigns for your brand or panel.",
+    "icon": "fa-brands fa-youtube",
+    "category": "YouTube",
+    "badge": "Premium",
+    "features": [
+      "Views from real users depending on targeting.",
+      "Awareness and branding focused campaigns.",
+      "Optional creatives support.",
+      "Great for promoting how your SMM panel works."
+    ]
+  },
+  {
+    "id": "smm_funnel",
+    "title": "Full SMM Panel Funnel",
+    "price": "Custom",
+    "description": "Complete funnel: landing page, ads, messaging, and optimization for your SMM panel.",
+    "icon": "fa-solid fa-bullhorn",
+    "category": "Funnel",
+    "badge": "Full Service",
+    "features": [
+      "Landing page tailored for your SMM panel.",
+      "Multi-channel traffic (WhatsApp, Telegram, social).",
+      "Offer & pricing strategy help.",
+      "Ongoing optimization based on results."
+    ]
+  }
+]
