@@ -1,77 +1,38 @@
 [
   {
-    "id": "whatsapp_bulk",
+    "id": 1,
     "title": "WhatsApp Bulk Messaging",
+    "category": "WhatsApp",
     "price": "From $50",
-    "description": "Send targeted WhatsApp campaigns to thousands of users in your niche.",
-    "icon": "fa-brands fa-whatsapp",
-    "category": "WhatsApp",
-    "badge": "Popular",
-    "features": [
-      "High-volume sending with smart throttling.",
-      "Target by country, language, or segment.",
-      "Professional message templates and media.",
-      "Delivery and engagement overview."
-    ]
+    "description": "Send targeted promotional messages to thousands of WhatsApp users.",
+    "image": "images/campaign-1.jpg",
+    "featured": true
   },
   {
-    "id": "whatsapp_groups",
+    "id": 2,
     "title": "WhatsApp Group Promotion",
-    "price": "Custom",
-    "description": "Grow your WhatsApp groups with real, engaged users.",
-    "icon": "fa-solid fa-users",
-    "category": "WhatsApp",
-    "badge": "Growth",
-    "features": [
-      "Invite users into your groups or communities.",
-      "Targeted audiences based on niche.",
-      "Best for community-based projects and SMM panels.",
-      "Optional content management support."
-    ]
+    "category": "WhatsApp Groups",
+    "price": "Custom pricing",
+    "description": "Promote your offers inside high-engagement WhatsApp groups.",
+    "image": "images/campaign-2.jpg",
+    "featured": false
   },
   {
-    "id": "telegram_bulk",
-    "title": "Telegram Bulk & Groups",
-    "price": "From $60",
-    "description": "Promote your offers in active Telegram channels and groups.",
-    "icon": "fa-brands fa-telegram",
+    "id": 3,
+    "title": "Telegram Channels & Groups",
     "category": "Telegram",
-    "badge": "New",
-    "features": [
-      "Promotion in niche-specific channels and groups.",
-      "Flexible campaign schedule.",
-      "Tracking for clicks and joins where possible.",
-      "Good for crypto, tech, and SMM panels."
-    ]
+    "price": "From $70",
+    "description": "Run campaigns through active Telegram channels and groups.",
+    "image": "images/campaign-3.jpg",
+    "featured": false
   },
   {
-    "id": "youtube_views",
-    "title": "YouTube Views Campaigns",
-    "price": "From $40",
-    "description": "Run YouTube view and awareness campaigns for your brand or panel.",
-    "icon": "fa-brands fa-youtube",
+    "id": 4,
+    "title": "YouTube Views & Campaigns",
     "category": "YouTube",
-    "badge": "Premium",
-    "features": [
-      "Views from real users depending on targeting.",
-      "Awareness and branding focused campaigns.",
-      "Optional creatives support.",
-      "Great for promoting how your SMM panel works."
-    ]
-  },
-  {
-    "id": "smm_funnel",
-    "title": "Full SMM Panel Funnel",
-    "price": "Custom",
-    "description": "Complete funnel: landing page, ads, messaging, and optimization for your SMM panel.",
-    "icon": "fa-solid fa-bullhorn",
-    "category": "Funnel",
-    "badge": "Full Service",
-    "features": [
-      "Landing page tailored for your SMM panel.",
-      "Multi-channel traffic (WhatsApp, Telegram, social).",
-      "Offer & pricing strategy help.",
-      "Ongoing optimization based on results."
-    ]
+    "price": "From $40",
+    "description": "Boost views and visibility for your YouTube videos.",
+    "image": "images/campaign-4.jpg",
+    "featured": false
   }
 ]

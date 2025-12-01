@@ -1,152 +1,121 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl" data-theme="dark">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>NetPal SMM | Social Media Marketing for SMM Panels</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <meta name="description" content="NetPal SMM - Professional social media marketing services for SMM panels: WhatsApp bulk, Telegram campaigns, YouTube views and more.">
+  <meta charset="UTF-8">
+  <title>NetPal SMM | تسويق لوحة SMM ورفع التفاعل</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" href="images/logo-netpal-smm.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo-netpal-smm.png">
 
-  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="dark">
 
-  <!-- ============ HEADER ============ -->
+  <!-- HEADER -->
   <header class="main-header">
     <div class="container header-inner">
       <div class="logo-area">
-        <img src="images/logo-netpal-smm.png" alt="NetPal SMM Logo" />
+        <img src="images/logo-netpal-smm.png" alt="NetPal SMM">
         <span>NetPal SMM</span>
       </div>
-
       <nav class="main-nav" id="mainNav">
-        <a href="#hero">Home</a>
-        <a href="#services">Services</a>
-        <a href="#gallery">Campaigns</a>
-        <a href="#pricing">Plans</a>
-        <a href="#contact">Contact</a>
+        <a href="#hero">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="#gallery">الأعمال</a>
+        <a href="#contact">تواصل</a>
       </nav>
-
-      <div class="header-cta">
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-          <i class="fa-solid fa-moon"></i>
+      <div class="header-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="بدّل الثيم">
+          <span id="themeIcon">🌙</span>
         </button>
-        <a href="https://wa.me/963993841762" class="btn-primary" target="_blank">
+        <a href="https://wa.me/963993841762" target="_blank" class="btn-primary">
           <i class="fa-brands fa-whatsapp"></i>
-          Order Now
+          اطلب خدمة
         </a>
+        <button class="burger" id="burgerBtn" aria-label="القائمة">
+          <span></span>
+        </button>
       </div>
-
-      <button class="burger" id="burgerBtn" aria-label="Menu">
-        <span></span>
-      </button>
     </div>
   </header>
 
-  <!-- ============ HERO ============ -->
+  <!-- HERO -->
   <section id="hero" class="hero">
     <div class="container hero-inner reveal">
       <div>
         <div class="hero-badge">
           <i class="fa-solid fa-bolt"></i>
-          SMM Panel Marketing Partner
+          حلول تسويق متخصصة للـ SMM Panel
         </div>
         <h1 class="hero-title">
-          Grow your SMM panel<br />
-          with smart campaigns.
+          خليك مشغول بالطلبات<br>واترك التسويق علينا
         </h1>
         <p class="hero-sub">
-          NetPal SMM helps you sell more SMM services with WhatsApp bulk, Telegram campaigns,
-          YouTube awareness and complete marketing funnels.
+          NetPal SMM تساعدك في جذب عملاء جدد للوحة الـ SMM الخاصة بك من خلال حملات واتساب، تيليجرام، وإعلانات موجهة باحترافية.
         </p>
         <div class="hero-actions">
-          <a href="#pricing" class="btn-primary">
+          <a href="#services" class="btn-primary">
             <i class="fa-solid fa-layer-group"></i>
-            View Plans
+            اكتشف الخدمات
           </a>
-          <a href="#services" class="btn-outline">
+          <a href="#contact" class="btn-outline">
             <i class="fa-solid fa-circle-info"></i>
-            Explore Services
+            احجز مكالمة
           </a>
         </div>
         <div class="hero-meta">
-          <span><strong>120+</strong> campaigns launched</span>
-          <span><strong>60+</strong> SMM panels served</span>
-          <span><strong>24/7</strong> support</span>
+          <span><strong>+60</strong> لوحة SMM تم تسويقها</span>
+          <span><strong>+120</strong> حملة ناجحة</span>
         </div>
       </div>
 
-      <div class="hero-media">
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <span>NetPal SMM Campaigns</span>
-            <span><i class="fa-solid fa-circle" style="color:#15d15f;"></i> Live</span>
-          </div>
-          <div class="hero-service-list">
-            <div class="hero-service-item">
-              <span>WhatsApp Bulk Messaging</span>
-              <small>Targeted by country & niche</small>
-            </div>
-            <div class="hero-service-item">
-              <span>Telegram Groups & Channels</span>
-              <small>Active and niche-focused</small>
-            </div>
-            <div class="hero-service-item">
-              <span>YouTube Views & Awareness</span>
-              <small>Show your SMM panel in action</small>
-            </div>
-          </div>
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <span>أهم الخدمات</span>
+          <span><i class="fa-solid fa-circle" style="color:#15d15f;"></i> Live</span>
         </div>
-        <div class="hero-highlight">
-          <i class="fa-solid fa-chart-line"></i>
-          Up to 3x more panel orders
+        <div class="hero-service-list" id="heroServiceList">
+          <!-- سيتم تعبئتها من services.json (featured=true) -->
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ SERVICES ============ -->
+  <!-- SERVICES -->
   <section id="services" class="section">
     <div class="container reveal">
       <div class="section-header">
-        <h2>Core SMM Services</h2>
-        <p>All the campaigns you need to grow your SMM panel and client base.</p>
+        <h2>خدمات NetPal SMM</h2>
+        <p>اختر الخدمة الأنسب للوحة الـ SMM الخاصة بك.</p>
         <div class="section-line"></div>
       </div>
-
-      <div id="servicesGrid" class="services-grid">
-        <!-- JS will inject service cards from services.json -->
+      <div class="services-grid" id="servicesGrid">
+        <!-- سيتم تعبئة البطاقات من services.json -->
       </div>
     </div>
   </section>
 
-  <!-- ============ GALLERY ============ -->
+  <!-- GALLERY -->
   <section id="gallery" class="section">
     <div class="container reveal">
       <div class="section-header">
-        <h2>Sample Campaign Creatives</h2>
-        <p>Preview how NetPal SMM can present your offers.</p>
+        <h2>نماذج من الحملات</h2>
+        <p>صور تجريبية يمكنك استبدالها لاحقاً بحملاتك الحقيقية.</p>
         <div class="section-line"></div>
       </div>
       <div class="gallery-grid">
-        <!-- ضع الصور اللي عملناها كـ Mockup -->
         <div class="gallery-item">
-          <img src="images/campaign-1.jpg" alt="WhatsApp Bulk Campaign">
+          <img src="images/campaign-1.jpg" alt="WhatsApp Bulk">
         </div>
         <div class="gallery-item">
-          <img src="images/campaign-2.jpg" alt="WhatsApp Group Promotion">
+          <img src="images/campaign-2.jpg" alt="WhatsApp Groups">
         </div>
         <div class="gallery-item">
-          <img src="images/campaign-3.jpg" alt="YouTube Views Campaign">
+          <img src="images/campaign-3.jpg" alt="YouTube Views">
         </div>
         <div class="gallery-item">
           <img src="images/campaign-4.jpg" alt="Social Media Growth">
@@ -155,84 +124,24 @@
     </div>
   </section>
 
-  <!-- ============ PRICING ============ -->
-  <section id="pricing" class="section">
-    <div class="container reveal">
-      <div class="section-header">
-        <h2>Flexible Plans</h2>
-        <p>Choose a plan that fits your SMM panel size and goals.</p>
-        <div class="section-line"></div>
-      </div>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <h3>Starter</h3>
-          <div class="price-amount">
-            $50 <span>/ campaign</span>
-          </div>
-          <ul class="price-list">
-            <li>Up to 5,000 WhatsApp or Telegram contacts.</li>
-            <li>One-time campaign setup.</li>
-            <li>Basic performance summary.</li>
-          </ul>
-          <a href="https://wa.me/963993841762" target="_blank" class="btn-primary" style="margin-top:10px;">
-            Order Starter
-          </a>
-        </div>
-
-        <div class="price-card highlight">
-          <div class="price-badge">Most Popular</div>
-          <h3>Growth</h3>
-          <div class="price-amount">
-            $120 <span>/ month</span>
-          </div>
-          <ul class="price-list">
-            <li>Ongoing WhatsApp & Telegram campaigns.</li>
-            <li>Basic creatives included.</li>
-            <li>Monthly optimization & reporting.</li>
-          </ul>
-          <a href="https://wa.me/963993841762" target="_blank" class="btn-primary" style="margin-top:10px;">
-            Choose Growth
-          </a>
-        </div>
-
-        <div class="price-card">
-          <h3>Pro Funnel</h3>
-          <div class="price-amount">
-            Custom <span>/ full funnel</span>
-          </div>
-          <ul class="price-list">
-            <li>Landing page + ads + messaging.</li>
-            <li>Multi-channel traffic.</li>
-            <li>Full funnel design for your SMM panel.</li>
-          </ul>
-          <a href="#contact" class="btn-outline" style="margin-top:10px;">
-            Talk to us
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
+  <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container reveal">
       <div class="section-header">
-        <h2>Contact NetPal SMM</h2>
-        <p>Ready to grow your SMM panel? Let’s plan your campaign.</p>
+        <h2>تواصل معنا</h2>
+        <p>أخبرنا عن لوحة الـ SMM الخاصة بك، ونقترح عليك أفضل خطة تسويق.</p>
         <div class="section-line"></div>
       </div>
 
       <div class="contact-wrapper">
         <div class="contact-info">
-          <p>
-            Reach us directly via WhatsApp or use the form and we’ll get back to you.
-          </p>
+          <p>تواصل معنا عبر واتساب أو عبر النموذج، وسنعود إليك بأسرع وقت.</p>
           <a href="https://wa.me/963993841762" target="_blank" class="btn-primary">
             <i class="fa-brands fa-whatsapp"></i>
-            WhatsApp Chat
+            تواصل واتساب
           </a>
 
-          <h3 style="margin-top:22px; font-size:1rem;">Follow NetPal</h3>
+          <h3 style="margin-top:22px; font-size:1rem;">تابعنا على السوشال</h3>
           <div class="contact-links">
             <a href="https://t.me/net_pal" target="_blank" class="contact-btn">
               <i class="fa-brands fa-telegram"></i> Telegram
@@ -246,60 +155,59 @@
           </div>
         </div>
 
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Your message has been sent ✅');">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your full name" required>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('تم استلام رسالتك ✅');">
+          <label for="name">الاسم</label>
+          <input id="name" type="text" placeholder="اكتب اسمك" required>
 
-          <label for="panel">SMM Panel URL</label>
-          <input id="panel" type="text" placeholder="e.g. bestpanel.com">
+          <label for="panel">اسم لوحة الـ SMM</label>
+          <input id="panel" type="text" placeholder="مثال: bestpanel.com">
 
-          <label for="msg">What do you need?</label>
-          <textarea id="msg" placeholder="Campaign type, target countries, budget, etc."></textarea>
+          <label for="msg">ماذا تحتاج؟</label>
+          <textarea id="msg" placeholder="صف لنا نوع الحملات، الدول المستهدفة، الميزانية التقريبية..."></textarea>
 
-          <button class="btn-primary" type="submit">Send Message</button>
+          <button class="btn-primary" type="submit">إرسال</button>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- FOOTER -->
   <footer class="main-footer">
     <div class="container">
-      <p>All Rights Reserved &copy; 2025 - <strong>NetPal SMM</strong></p>
+      <p>جميع الحقوق محفوظة &copy; 2025 - NetPal SMM</p>
     </div>
   </footer>
 
-  <!-- ============ SCRIPTS ============ -->
+  <!-- SCRIPTS -->
   <script>
-    // ========== Mobile menu ==========
+    // ========== THEME TOGGLE ==========
+    const body = document.body;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      body.dataset.theme = savedTheme;
+      themeIcon.textContent = savedTheme === 'light' ? '☀️' : '🌙';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const current = body.dataset.theme === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      body.dataset.theme = next;
+      themeIcon.textContent = next === 'light' ? '☀️' : '🌙';
+      localStorage.setItem('theme', next);
+    });
+
+    // ========== MOBILE NAV ==========
     const burger = document.getElementById('burgerBtn');
     const nav = document.getElementById('mainNav');
+
     burger.addEventListener('click', () => {
       nav.classList.toggle('open');
     });
 
-    // ========== Theme toggle ==========
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = themeToggle.querySelector('i');
-
-    function applyTheme(theme) {
-      root.setAttribute('data-theme', theme);
-      localStorage.setItem('netpal_theme', theme);
-      themeIcon.className = theme === 'dark'
-        ? 'fa-solid fa-moon'
-        : 'fa-solid fa-sun';
-    }
-
-    const savedTheme = localStorage.getItem('netpal_theme') || 'dark';
-    applyTheme(savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme');
-      applyTheme(current === 'dark' ? 'light' : 'dark');
-    });
-
-    // ========== Reveal on scroll ==========
+    // ========== REVEAL ON SCROLL ==========
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -312,48 +220,52 @@
 
     reveals.forEach(el => observer.observe(el));
 
-    // ========== Load services from services.json ==========
+    // ========== LOAD SERVICES FROM services.json ==========
     async function loadServices() {
-      const grid = document.getElementById('servicesGrid');
-      grid.innerHTML = '<p class="loading-text">Loading services...</p>';
       try {
-        const res = await fetch('services.json?cache=' + Date.now());
+        const res = await fetch('services.json?' + Date.now());
         if (!res.ok) throw new Error('Failed to load services.json');
         const services = await res.json();
 
-        if (!Array.isArray(services) || !services.length) {
-          grid.innerHTML = '<p class="loading-text">No services added yet.</p>';
-          return;
-        }
+        const servicesGrid = document.getElementById('servicesGrid');
+        const heroServiceList = document.getElementById('heroServiceList');
 
-        grid.innerHTML = '';
+        servicesGrid.innerHTML = '';
+        heroServiceList.innerHTML = '';
+
         services.forEach(service => {
-          const card = document.createElement('article');
+          // cards
+          const card = document.createElement('div');
           card.className = 'service-card';
-
           card.innerHTML = `
-            <div class="service-icon">
-              <i class="${service.icon || 'fa-solid fa-check'}"></i>
+            <div class="service-header">
+              <h3>${service.title}</h3>
+              <span class="service-badge">${service.category || 'Service'}</span>
             </div>
-            <h3>${service.title || ''}</h3>
             <p>${service.description || ''}</p>
-            <div class="service-meta">
-              <span>${service.price ? service.price : ''}</span>
-              <span>${service.category || ''}</span>
-            </div>
-            ${service.badge ? `<div class="service-badge">${service.badge}</div>` : ''}
-            <div class="service-actions">
-              <a href="#contact" class="btn-primary btn-sm">Request</a>
-              <a href="https://wa.me/963993841762?text=${encodeURIComponent('I am interested in: ' + (service.title || 'one of your services'))}" target="_blank" class="btn-outline btn-sm">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            <div class="service-footer">
+              <span>${service.priceLabel || ''}</span>
+              <a href="#contact" class="btn-outline" style="font-size:0.8rem;padding:6px 10px;">
+                اطلب الخدمة
               </a>
             </div>
           `;
-          grid.appendChild(card);
+          servicesGrid.appendChild(card);
+
+          // featured in hero
+          if (service.featured) {
+            const item = document.createElement('div');
+            item.className = 'hero-service-item';
+            item.innerHTML = `
+              <span>${service.title}</span>
+              <small>${service.priceLabel || ''}</small>
+            `;
+            heroServiceList.appendChild(item);
+          }
         });
+
       } catch (err) {
         console.error(err);
-        grid.innerHTML = '<p class="loading-text error">Error loading services. Check services.json.</p>';
       }
     }
 
