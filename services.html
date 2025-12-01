@@ -1,42 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NetPal SMM – Services</title>
+  <title>NetPal SMM | Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- انسخ نفس الهيدر من index.html بالضبط -->
-  <!-- ... الهيدر هنا ... -->
-
+  <!-- نفس الهيدر مع Active مختلف -->
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo-area">
-        <img src="images/logo-netpal-smm.png" alt="NetPal SMM logo">
-        <span class="logo-text">NetPal SMM</span>
-      </div>
-      <nav class="main-nav" id="mainNav">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="plans.html">Plans</a>
-        <a href="contact.html">Contact</a>
+      <a href="index.html" class="logo-area">
+        <img src="images/logo-netpal-smm.png" alt="NetPal SMM">
+        <div class="logo-text">
+          <span>NetPal SMM</span>
+          <span>Smart marketing for SMM panels</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="services.html" data-i18n="nav.services" class="active">Services</a>
+        <a href="pricing.html" data-i18n="nav.pricing">Pricing</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
-      <div class="header-controls">
-        <button id="themeToggle" class="icon-btn" title="Toggle theme">
-          <i class="fa-solid fa-moon"></i>
-        </button>
-        <button id="langToggle" class="lang-switch" title="Switch language">AR</button>
-        <a href="https://wa.me/963993841762" target="_blank" class="btn">
-          <i class="fa-brands fa-whatsapp"></i>
-          Order now
-        </a>
-        <button id="burgerBtn" class="burger" aria-label="Menu">
-          <span></span>
-        </button>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="header-btn theme-toggle">Dark</button>
+        <button id="langToggle" class="header-btn lang-toggle">EN</button>
+        <a href="contact.html" class="header-btn btn-primary-small">Get started</a>
       </div>
+
+      <button class="burger" aria-label="Menu">
+        <span></span>
+      </button>
     </div>
   </header>
 
@@ -44,21 +42,45 @@
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <h1>All Services</h1>
-          <p>Browse all the campaigns we can run for your SMM panel.</p>
-          <div class="section-line"></div>
+          <h1 class="section-title">Services</h1>
+          <p class="section-sub">Main marketing services to grow your SMM panel.</p>
         </div>
-        <div class="services-grid" data-services-list></div>
+        <div class="card-grid-3">
+          <div class="card">
+            <h3>WhatsApp Bulk Messaging</h3>
+            <p>Send promotional messages to targeted WhatsApp lists by country and niche.</p>
+          </div>
+          <div class="card">
+            <h3>WhatsApp Groups</h3>
+            <p>Create and manage promo groups with continuous content and offers.</p>
+          </div>
+          <div class="card">
+            <h3>Telegram Channels & Groups</h3>
+            <p>Promote your panel inside active Telegram communities.</p>
+          </div>
+          <div class="card">
+            <h3>SMM Panel Funnels</h3>
+            <p>Landing page + ads + follow-up built for your SMM panel.</p>
+          </div>
+          <div class="card">
+            <h3>Social Media Content & Design</h3>
+            <p>Branding and post design for your social accounts.</p>
+          </div>
+          <div class="card">
+            <h3>Consulting for SMM owners</h3>
+            <p>Calls to set your pricing, offers and marketing strategy.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2025 NetPal SMM – All rights reserved.</p>
+      <p>© 2025 NetPal SMM. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

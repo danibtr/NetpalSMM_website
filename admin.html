@@ -1,274 +1,126 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NetPal SMM – Admin</title>
+  <title>NetPal SMM Admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Identity Services -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-
-  <!-- Fonts / Icons / Style -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <style>
-    body {
-      background: radial-gradient(circle at top, rgba(0,124,182,0.25), #02040a);
-      color: #fff;
-    }
-    .admin-shell {
-      max-width: 900px;
-      margin: 80px auto;
-      background: rgba(5,9,21,0.96);
-      border-radius: 22px;
-      padding: 26px 24px 24px;
-      box-shadow: 0 22px 60px rgba(0,0,0,0.8);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .admin-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 22px;
-    }
-    .admin-header-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .admin-header-left img {
-      width: 38px;
-      height: auto;
-    }
-    .admin-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-    .admin-sub {
-      font-size: 0.85rem;
-      color: #9ca3b5;
-    }
-    #editor {
-      width: 100%;
-      min-height: 340px;
-      background: #02040a;
-      color: #e5e7eb;
-      border-radius: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      padding: 12px;
-      font-family: "JetBrains Mono", "Cascadia Code", monospace;
-      font-size: 0.9rem;
-      resize: vertical;
-      white-space: pre;
-    }
-    .admin-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 14px;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .admin-status {
-      margin-top: 10px;
-      font-size: 0.86rem;
-      color: #9ca3b5;
-    }
-    #loginView {
-      max-width: 420px;
-      margin: 120px auto;
-      text-align: center;
-      background: rgba(5,9,21,0.96);
-      padding: 24px 20px 22px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 22px 60px rgba(0,0,0,0.8);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="loginView">
-    <h1 style="margin-bottom:8px;">NetPal SMM – Admin</h1>
-    <p style="font-size:0.9rem; color:#9ca3b5; margin-bottom:18px;">
-      Only <strong>netpalsuper7@gmail.com</strong> is allowed to sign in.
-    </p>
-    <div id="g_id_onload"
-         data-client_id="886540598530-t5ocfg0jfa14vlv83qv0co8qrjnsbjt9.apps.googleusercontent.com"
-         data-context="signin"
-         data-ux_mode="popup"
-         data-callback="handleCredentialResponse"
-         data-auto_prompt="false">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo-area">
+        <img src="images/logo-netpal-smm.png" alt="NetPal SMM">
+        <div class="logo-text">
+          <span>NetPal SMM Admin</span>
+          <span>Control panel</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggle" class="header-btn theme-toggle">Dark</button>
+      </div>
+      <button class="burger" aria-label="Menu">
+        <span></span>
+      </button>
     </div>
-    <div class="g_id_signin"
-         data-type="standard"
-         data-size="large"
-         data-theme="outline"
-         data-text="sign_in_with"
-         data-shape="pill"
-         data-logo_alignment="left">
-    </div>
-    <p style="margin-top:14px; font-size:0.8rem; color:#6b7280;">
-      This login only protects accidental access. Keep your GitHub token private.
-    </p>
-  </div>
+  </header>
 
-  <div id="adminApp" style="display:none;">
-    <div class="admin-shell">
-      <div class="admin-header">
-        <div class="admin-header-left">
-          <img src="images/logo-netpal-smm-white.png" alt="logo">
+  <main class="admin-page">
+    <div class="container">
+      <!-- LOGIN CARD -->
+      <div id="loginCard" class="admin-card">
+        <h2 style="margin-bottom:10px;">Admin login</h2>
+        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">
+          Only your email + password can access. GitHub token is required only to save changes.
+        </p>
+        <form id="loginForm">
+          <div style="margin-bottom:8px;">
+            <label for="email" style="font-size:0.9rem;">Email</label>
+            <input id="email" type="email" placeholder="admin email" required>
+          </div>
+          <div style="margin-bottom:8px;">
+            <label for="password" style="font-size:0.9rem;">Password</label>
+            <input id="password" type="password" placeholder="admin password" required>
+          </div>
+          <div style="margin-bottom:12px;">
+            <label for="token" style="font-size:0.9rem;">GitHub PAT (token)</label>
+            <input id="token" type="password" placeholder="Paste GitHub PAT (write scope)" required>
+          </div>
+          <button type="submit" class="btn-main">Login</button>
+          <p id="loginError" style="font-size:0.85rem; color:#ef4444; margin-top:8px;"></p>
+        </form>
+      </div>
+
+      <!-- ADMIN PANEL -->
+      <div id="adminPanel" class="admin-card" style="display:none; margin-top:20px;">
+        <h2 style="margin-bottom:10px;">Services Manager</h2>
+        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">
+          Here you can edit the services list (services.json) used on the website.
+        </p>
+
+        <div class="admin-grid">
           <div>
-            <div class="admin-title">NetPal SMM – Admin</div>
-            <div class="admin-sub">services.json editor (danibtr / NetpalSMM_website)</div>
+            <h3 style="margin-bottom:8px;">Existing services</h3>
+            <table class="admin-table" id="servicesTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Active</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- filled by JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <h3 style="margin-bottom:8px;">Add / edit service</h3>
+            <form id="serviceForm">
+              <input type="hidden" id="serviceId">
+              <label style="font-size:0.9rem;">Name</label>
+              <input id="serviceName" type="text" required>
+
+              <label style="font-size:0.9rem;">Category</label>
+              <input id="serviceCategory" type="text" required>
+
+              <label style="font-size:0.9rem;">Price</label>
+              <input id="servicePrice" type="text" required>
+
+              <label style="font-size:0.9rem;">Description</label>
+              <textarea id="serviceDescription" rows="3" required></textarea>
+
+              <label style="font-size:0.9rem;">
+                <input id="serviceActive" type="checkbox" checked> Active
+              </label>
+
+              <button type="submit" class="btn-main" style="margin-top:8px;">Save service</button>
+              <button type="button" id="resetFormBtn" class="btn-outline" style="margin-top:8px;">Reset form</button>
+              <p id="saveStatus" style="font-size:0.85rem; margin-top:6px;"></p>
+            </form>
           </div>
         </div>
-        <div style="text-align:right; font-size:0.8rem;">
-          <div id="adminUserEmail"></div>
-          <button class="btn-outline btn-sm" onclick="logoutGoogle()">Sign out</button>
-        </div>
-      </div>
 
-      <h2 style="font-size:1.05rem; margin-bottom:8px;">services.json editor</h2>
-      <p class="admin-sub">
-        Edit your services here. Make sure it stays valid JSON (you can use <a href="https://jsonlint.com" target="_blank" style="color:#38bdf8;">jsonlint.com</a> to check).
-      </p>
-
-      <textarea id="editor" spellcheck="false"></textarea>
-
-      <div class="admin-buttons">
-        <button class="btn-outline btn-sm" onclick="reloadFromGitHub()">
-          <i class="fa-solid fa-rotate"></i> Reload from GitHub
-        </button>
-        <button class="btn btn-sm" onclick="saveToGitHub()">
-          <i class="fa-solid fa-cloud-arrow-up"></i> Save to GitHub
-        </button>
-      </div>
-
-      <div class="admin-status" id="statusLine">
-        Ready. Load services.json from GitHub.
+        <p style="margin-top:12px; font-size:0.8rem; color:var(--text-muted);">
+          Changes are saved directly to
+          <code>services.json</code> on GitHub (repo: <strong>danibtr/NetpalSMM_website</strong>).
+        </p>
       </div>
     </div>
-  </div>
+  </main>
 
-  <script>
-    // ==== Google Sign-in handling ====
-    const ALLOWED_EMAIL = "netpalsuper7@gmail.com";
-    let currentUserEmail = null;
+  <footer class="site-footer">
+    <div class="container">
+      <p>NetPal SMM Admin</p>
+    </div>
+  </footer>
 
-    function parseJwt (token) {
-      const base64Url = token.split('.')[1];
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-      }).join(''));
-      return JSON.parse(jsonPayload);
-    }
-
-    window.handleCredentialResponse = function(response) {
-      try {
-        const payload = parseJwt(response.credential);
-        const email = payload.email;
-        if (email !== ALLOWED_EMAIL) {
-          alert("This admin is restricted to " + ALLOWED_EMAIL);
-          return;
-        }
-        currentUserEmail = email;
-        document.getElementById("adminUserEmail").textContent = email;
-        document.getElementById("loginView").style.display = "none";
-        document.getElementById("adminApp").style.display = "block";
-        reloadFromGitHub();
-      } catch (e) {
-        console.error(e);
-        alert("Google login failed. Please try again.");
-      }
-    };
-
-    function logoutGoogle() {
-      location.reload();
-    }
-
-    // ==== GitHub API logic ====
-    const owner = "danibtr";
-    const repo = "NetpalSMM_website";
-    const filePath = "services.json";
-
-    let githubToken = null;
-    let currentSha = null;
-
-    const statusEl = document.getElementById("statusLine");
-    const editor = document.getElementById("editor");
-
-    async function ensureToken() {
-      if (!githubToken) {
-        githubToken = prompt("Paste your GitHub personal access token (it will be kept only in this tab):");
-      }
-      if (!githubToken) {
-        throw new Error("No GitHub token provided");
-      }
-    }
-
-    async function reloadFromGitHub() {
-      try {
-        await ensureToken();
-        statusEl.textContent = "Loading from GitHub...";
-        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${filePath}?t=${Date.now()}`, {
-          headers: {
-            "Authorization": "token " + githubToken,
-            "Accept": "application/vnd.github+json"
-          }
-        });
-        if (!res.ok) {
-          throw new Error("GitHub error: " + res.status);
-        }
-        const data = await res.json();
-        const content = atob(data.content.replace(/\n/g, ""));
-        currentSha = data.sha;
-        editor.value = content;
-        statusEl.textContent = "Loaded services.json from GitHub.";
-      } catch (err) {
-        console.error(err);
-        statusEl.textContent = "Error loading from GitHub: " + err.message;
-      }
-    }
-
-    async function saveToGitHub() {
-      try {
-        await ensureToken();
-        // validate JSON first
-        try {
-          JSON.parse(editor.value);
-        } catch (e) {
-          alert("JSON is not valid. Please fix it before saving.");
-          return;
-        }
-        statusEl.textContent = "Saving to GitHub...";
-        const encoded = btoa(unescape(encodeURIComponent(editor.value)));
-        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`, {
-          method: "PUT",
-          headers: {
-            "Authorization": "token " + githubToken,
-            "Accept": "application/vnd.github+json",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            message: "Update services.json via NetPal SMM admin",
-            content: encoded,
-            sha: currentSha
-          })
-        });
-        if (!res.ok) {
-          throw new Error("GitHub error: " + res.status);
-        }
-        const data = await res.json();
-        currentSha = data.content.sha;
-        statusEl.textContent = "Saved successfully to GitHub.";
-      } catch (err) {
-        console.error(err);
-        statusEl.textContent = "Error saving to GitHub: " + err.message;
-      }
-    }
-  </script>
+  <script src="app.js"></script>
+  <script src="admin.js"></script>
 </body>
 </html>
