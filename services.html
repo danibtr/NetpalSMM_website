@@ -1,86 +1,514 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <title>NetPal SMM | Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>NetPal SMM – Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore all NetPal SMM services for WhatsApp, Telegram, social media marketing and custom campaigns.">
+
+  <!-- Google Font (Same as main site) -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Main Style -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Page specific style (خاصة بهاي الصفحة فقط) -->
+  <style>
+    body {
+      font-family: "Baloo Bhaijaan 2", system-ui, -apple-system, sans-serif;
+    }
+
+    .page-hero {
+      padding: 80px 0 40px;
+      background: radial-gradient(circle at top, rgba(0,124,182,0.25), transparent 55%);
+    }
+
+    .page-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .page-hero-text h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .page-hero-text p {
+      color: #9ba1aa;
+      max-width: 520px;
+    }
+
+    .page-breadcrumb {
+      font-size: 0.9rem;
+      color: #9ba1aa;
+      margin-top: 8px;
+    }
+
+    .page-breadcrumb a {
+      color: #9ba1aa;
+      text-decoration: none;
+    }
+
+    .page-breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .services-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 16px 60px;
+    }
+
+    .services-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .services-header h2 {
+      font-size: 1.6rem;
+    }
+
+    .service-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-chip {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(4,9,18,0.9);
+      color: #d7dde7;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+
+    .filter-chip.active {
+      background: linear-gradient(135deg, #007cb6, #002f7a);
+      border-color: transparent;
+      color: #ffffff;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .service-card {
+      background: #050915;
+      border-radius: 18px;
+      padding: 18px 18px 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #007cb6, #002f7a);
+    }
+
+    .service-icon i {
+      font-size: 1.1rem;
+    }
+
+    .service-tag {
+      font-size: 0.78rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #9ba1aa;
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: #9ba1aa;
+    }
+
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+      font-size: 0.9rem;
+      color: #9ba1aa;
+    }
+
+    .service-meta strong {
+      color: #ffffff;
+    }
+
+    .service-actions {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+    }
+
+    .services-note {
+      margin-top: 22px;
+      font-size: 0.85rem;
+      color: #9ba1aa;
+    }
+
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page-hero {
+        padding-top: 70px;
+      }
+
+      .page-hero-text h1 {
+        font-size: 1.8rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body>
-  <!-- نفس الهيدر مع Active مختلف -->
-  <header class="site-header">
+<body class="theme-dark">
+  <!-- HEADER (نفس الهيدر في باقي الصفحات) -->
+  <header class="main-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo-area">
-        <img src="images/logo-netpal-smm.png" alt="NetPal SMM">
-        <div class="logo-text">
-          <span>NetPal SMM</span>
-          <span>Smart marketing for SMM panels</span>
-        </div>
-      </a>
-
-      <nav class="main-nav">
-        <a href="index.html" data-i18n="nav.home">Home</a>
-        <a href="services.html" data-i18n="nav.services" class="active">Services</a>
-        <a href="pricing.html" data-i18n="nav.pricing">Pricing</a>
-        <a href="contact.html" data-i18n="nav.contact">Contact</a>
-      </nav>
-
-      <div class="header-actions">
-        <button id="themeToggle" class="header-btn theme-toggle">Dark</button>
-        <button id="langToggle" class="header-btn lang-toggle">EN</button>
-        <a href="contact.html" class="header-btn btn-primary-small">Get started</a>
+      <div class="logo-area">
+        <img src="images/logo-netpal-smm.png" alt="NetPal SMM Logo" />
+        <span>NetPal SMM</span>
       </div>
 
-      <button class="burger" aria-label="Menu">
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="plans.html">Plans</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-cta">
+        <!-- زر تغيير الثيم (dark / light) -->
+        <button id="themeToggle" class="btn-outline" type="button">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+
+        <a href="https://wa.me/963993841762" class="btn-primary" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp
+        </a>
+      </div>
+
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu">
         <span></span>
       </button>
     </div>
   </header>
 
-  <main>
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h1 class="section-title">Services</h1>
-          <p class="section-sub">Main marketing services to grow your SMM panel.</p>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-text">
+        <div class="page-breadcrumb">
+          <a href="index.html">Home</a> · <span>Services</span>
         </div>
-        <div class="card-grid-3">
-          <div class="card">
-            <h3>WhatsApp Bulk Messaging</h3>
-            <p>Send promotional messages to targeted WhatsApp lists by country and niche.</p>
-          </div>
-          <div class="card">
-            <h3>WhatsApp Groups</h3>
-            <p>Create and manage promo groups with continuous content and offers.</p>
-          </div>
-          <div class="card">
-            <h3>Telegram Channels & Groups</h3>
-            <p>Promote your panel inside active Telegram communities.</p>
-          </div>
-          <div class="card">
-            <h3>SMM Panel Funnels</h3>
-            <p>Landing page + ads + follow-up built for your SMM panel.</p>
-          </div>
-          <div class="card">
-            <h3>Social Media Content & Design</h3>
-            <p>Branding and post design for your social accounts.</p>
-          </div>
-          <div class="card">
-            <h3>Consulting for SMM owners</h3>
-            <p>Calls to set your pricing, offers and marketing strategy.</p>
-          </div>
-        </div>
+        <h1>All NetPal SMM Services</h1>
+        <p>
+          Discover our full list of marketing services for WhatsApp, Telegram, and social media.
+          Every service is designed to help your SMM panel get more real, high-quality clients.
+        </p>
       </div>
-    </section>
+      <div>
+        <!-- ممكن هنا لاحقاً نضيف صورة أو إحصائيات بسيطة -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES CONTENT -->
+  <main class="services-wrapper">
+    <div class="services-header">
+      <h2>Browse by category</h2>
+      <div class="service-filters">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="whatsapp">WhatsApp</button>
+        <button class="filter-chip" data-filter="telegram">Telegram</button>
+        <button class="filter-chip" data-filter="social">Social Media</button>
+        <button class="filter-chip" data-filter="other">Other</button>
+      </div>
+    </div>
+
+    <div class="services-grid" id="servicesGrid">
+      <!-- WhatsApp Bulk -->
+      <article class="service-card" data-category="whatsapp">
+        <div class="service-top">
+          <div class="service-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <span class="service-tag">WhatsApp</span>
+        </div>
+        <h3>WhatsApp Bulk Messaging</h3>
+        <p>
+          Send targeted promotional messages to thousands of users on WhatsApp with custom text,
+          images, and call-to-action links for your SMM panel.
+        </p>
+        <div class="service-meta">
+          <span>From <strong>1,000+</strong> messages</span>
+          <span><i class="fa-solid fa-clock"></i> Fast delivery</span>
+        </div>
+        <div class="service-actions">
+          <a href="plans.html" class="btn-primary btn-sm">View plans</a>
+          <a href="contact.html" class="btn-outline btn-sm">Ask about this service</a>
+        </div>
+      </article>
+
+      <!-- WhatsApp Groups -->
+      <article class="service-card" data-category="whatsapp">
+        <div class="service-top">
+          <div class="service-icon">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <span class="service-tag">WhatsApp Groups</span>
+        </div>
+        <h3>WhatsApp Group Promotion</h3>
+        <p>
+          Create and manage WhatsApp groups to promote your SMM panel offers and engage with
+          active, highly-targeted audiences.
+        </p>
+        <div class="service-meta">
+          <span>Up to <strong>thousands</strong> of members</span>
+          <span><i class="fa-solid fa-shield"></i> Filtered audience</span>
+        </div>
+        <div class="service-actions">
+          <a href="contact.html" class="btn-primary btn-sm">Book a campaign</a>
+        </div>
+      </article>
+
+      <!-- Telegram Bulk -->
+      <article class="service-card" data-category="telegram">
+        <div class="service-top">
+          <div class="service-icon">
+            <i class="fa-brands fa-telegram"></i>
+          </div>
+          <span class="service-tag">Telegram</span>
+        </div>
+        <h3>Telegram Bulk Campaigns</h3>
+        <p>
+          Run bulk campaigns across niche Telegram channels and groups to drive high-intent
+          traffic directly to your SMM panel.
+        </p>
+        <div class="service-meta">
+          <span>Targeted <strong>channels &amp; groups</strong></span>
+          <span><i class="fa-solid fa-chart-column"></i> Performance reports</span>
+        </div>
+        <div class="service-actions">
+          <a href="plans.html" class="btn-outline btn-sm">See Telegram plans</a>
+        </div>
+      </article>
+
+      <!-- Telegram Groups -->
+      <article class="service-card" data-category="telegram">
+        <div class="service-top">
+          <div class="service-icon">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <span class="service-tag">Telegram Groups</span>
+        </div>
+        <h3>Telegram Group Advertising</h3>
+        <p>
+          Advertise your SMM services inside active Telegram groups with real discussions,
+          pinned posts, and repeated exposure.
+        </p>
+        <div class="service-meta">
+          <span><strong>High-engagement</strong> groups</span>
+          <span><i class="fa-solid fa-bullhorn"></i> Strong brand visibility</span>
+        </div>
+        <div class="service-actions">
+          <a href="contact.html" class="btn-primary btn-sm">Start now</a>
+        </div>
+      </article>
+
+      <!-- Social Media Management -->
+      <article class="service-card" data-category="social">
+        <div class="service-top">
+          <div class="service-icon">
+            <i class="fa-solid fa-bullhorn"></i>
+          </div>
+          <span class="service-tag">Social Media</span>
+        </div>
+        <h3>Full Social Media Management</h3>
+        <p>
+          We manage your Instagram, Facebook and TikTok presence with content, posting,
+          and growth tactics that support your SMM panel brand.
+        </p>
+        <div class="service-meta">
+          <span><strong>Monthly</strong> management</span>
+          <span><i class="fa-solid fa-calendar-days"></i> Consistent posting</span>
+        </div>
+        <div class="service-actions">
+          <a href="plans.html" class="btn-outline btn-sm">View packages</a>
+        </div>
+      </article>
+
+      <!-- Designs -->
+      <article class="service-card" data-category="social">
+        <div class="service-top">
+          <div class="service-icon">
+            <i class="fa-solid fa-pen-ruler"></i>
+          </div>
+          <span class="service-tag">Design</span>
+        </div>
+        <h3>Branding & Ad Designs</h3>
+        <p>
+          Professional banners, sliders, post templates and full identity designs that match
+          your NetPal SMM style and colors.
+        </p>
+        <div class="service-meta">
+          <span><strong>Custom</strong> design</span>
+          <span><i class="fa-solid fa-palette"></i> On-brand visuals</span>
+        </div>
+        <div class="service-actions">
+          <a href="contact.html" class="btn-primary btn-sm">Request a design</a>
+        </div>
+      </article>
+
+      <!-- Consulting -->
+      <article class="service-card" data-category="other">
+        <div class="service-top">
+          <div class="service-icon">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <span class="service-tag">Consulting</span>
+        </div>
+        <h3>SMM Panel Consulting</h3>
+        <p>
+          1:1 strategy sessions to define your offers, pricing, best-selling countries,
+          and the right channels to advertise your panel.
+        </p>
+        <div class="service-meta">
+          <span><strong>1:1</strong> sessions</span>
+          <span><i class="fa-solid fa-lightbulb"></i> Clear roadmap</span>
+        </div>
+        <div class="service-actions">
+          <a href="contact.html" class="btn-outline btn-sm">Book a call</a>
+        </div>
+      </article>
+
+      <!-- Custom campaigns -->
+      <article class="service-card" data-category="other">
+        <div class="service-top">
+          <div class="service-icon">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <span class="service-tag">Custom</span>
+        </div>
+        <h3>Custom Multi-Channel Campaigns</h3>
+        <p>
+          Combine WhatsApp, Telegram, and social ads in one powerful funnel tailored
+          to your goals, budget, and target countries.
+        </p>
+        <div class="service-meta">
+          <span><strong>Custom</strong> budget</span>
+          <span><i class="fa-solid fa-arrow-trend-up"></i> Maximum impact</span>
+        </div>
+        <div class="service-actions">
+          <a href="contact.html" class="btn-primary btn-sm">Build my campaign</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="services-note">
+      Don’t see exactly what you need? Contact us and we’ll build a custom package
+      for your SMM panel.
+    </p>
   </main>
 
-  <footer class="site-footer">
+  <!-- FOOTER (بسيط حالياً) -->
+  <footer class="main-footer">
     <div class="container">
-      <p>© 2025 NetPal SMM. All rights reserved.</p>
+      <p>All rights reserved &copy; 2025 – <strong>NetPal SMM</strong></p>
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <!-- SMALL JS: المينو + الفلتر + تبديل الثيم -->
+  <script>
+    // Mobile menu
+    const burger = document.getElementById("burgerBtn");
+    const nav = document.getElementById("mainNav");
+    if (burger && nav) {
+      burger.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    }
+
+    // Filter services
+    const filterChips = document.querySelectorAll(".filter-chip");
+    const serviceCards = document.querySelectorAll(".service-card");
+
+    filterChips.forEach(chip => {
+      chip.addEventListener("click", () => {
+        const filter = chip.dataset.filter;
+        filterChips.forEach(c => c.classList.remove("active"));
+        chip.classList.add("active");
+
+        serviceCards.forEach(card => {
+          const category = card.dataset.category;
+          if (filter === "all" || filter === category) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Theme toggle (dark / light) – يحتاج دعم من style.css بالـ variables
+    const themeToggle = document.getElementById("themeToggle");
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("theme-light");
+      });
+    }
+  </script>
 </body>
 </html>
