@@ -1,361 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <title>NetPal SMM – Admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <!-- Fonts / Icons / Style -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
-    :root {
-      --bg: #02040a;
-      --card: #050915;
-      --primary: #007CB6;
-      --primary-dark: #002F7A;
-      --text: #ffffff;
-      --muted: #a4acb9;
-      --radius: 18px;
-      --shadow: 0 18px 40px rgba(0,0,0,0.55);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      font-family: "Baloo Bhaijaan 2", system-ui, sans-serif;
-      background: radial-gradient(circle at top, #050915, #000000 60%);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      background: radial-gradient(circle at top, rgba(0,124,182,0.25), #02040a);
+      color: #fff;
     }
-
-    .card {
-      width: min(900px, 100%);
-      background: var(--card);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
+    .admin-shell {
+      max-width: 900px;
+      margin: 80px auto;
+      background: rgba(5,9,21,0.96);
+      border-radius: 22px;
       padding: 26px 24px 24px;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.8);
       border: 1px solid rgba(255,255,255,0.06);
     }
-
-    .card-header {
+    .admin-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 22px;
     }
-
-    .logo {
+    .admin-header-left {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-
-    .logo img {
+    .admin-header-left img {
       width: 38px;
-      height: 38px;
+      height: auto;
     }
-
-    .logo-title {
-      font-size: 1.2rem;
+    .admin-title {
+      font-size: 1.3rem;
+      font-weight: 600;
     }
-
-    .badge {
-      font-size: 0.8rem;
-      color: var(--muted);
+    .admin-sub {
+      font-size: 0.85rem;
+      color: #9ca3b5;
     }
-
-    h2 {
-      margin-bottom: 8px;
-      font-size: 1.4rem;
-    }
-
-    p {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .section {
-      margin-top: 18px;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border-radius: 999px;
-      border: none;
-      padding: 10px 20px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #fff;
-      cursor: pointer;
-      font-size: 0.95rem;
-      box-shadow: var(--shadow);
-    }
-
-    textarea {
+    #editor {
       width: 100%;
-      min-height: 260px;
-      margin-top: 10px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.12);
+      min-height: 340px;
       background: #02040a;
-      color: #fff;
+      color: #e5e7eb;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 12px;
+      font-family: "JetBrains Mono", "Cascadia Code", monospace;
       font-size: 0.9rem;
-      padding: 10px 12px;
-      font-family: monospace;
       resize: vertical;
       white-space: pre;
     }
-
-    .status {
-      margin-top: 10px;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .status.ok {
-      color: #70e19f;
-    }
-
-    .status.err {
-      color: #ff8080;
-    }
-
-    .top-row {
+    .admin-buttons {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      margin-top: 14px;
       gap: 10px;
-      margin-top: 12px;
+      flex-wrap: wrap;
     }
-
-    .top-row .btn {
-      padding-inline: 16px;
+    .admin-status {
+      margin-top: 10px;
       font-size: 0.86rem;
+      color: #9ca3b5;
     }
-
-    .small {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 600px) {
-      .card { padding: 18px 16px 18px; }
-      h2 { font-size: 1.25rem; }
+    #loginView {
+      max-width: 420px;
+      margin: 120px auto;
+      text-align: center;
+      background: rgba(5,9,21,0.96);
+      padding: 24px 20px 22px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.8);
     }
   </style>
-
-  <!-- Google Identity Services -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-  <div class="card">
-    <div class="card-header">
-      <div class="logo">
-        <img src="images/logo-netpal-smm.png" alt="">
-        <div>
-          <div class="logo-title">NetPal SMM – Admin</div>
-          <div class="badge">Only <strong>netpalsuper7@gmail.com</strong> is allowed</div>
+  <div id="loginView">
+    <h1 style="margin-bottom:8px;">NetPal SMM – Admin</h1>
+    <p style="font-size:0.9rem; color:#9ca3b5; margin-bottom:18px;">
+      Only <strong>netpalsuper7@gmail.com</strong> is allowed to sign in.
+    </p>
+    <div id="g_id_onload"
+         data-client_id="886540598530-t5ocfg0jfa14vlv83qv0co8qrjnsbjt9.apps.googleusercontent.com"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+    <div class="g_id_signin"
+         data-type="standard"
+         data-size="large"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-shape="pill"
+         data-logo_alignment="left">
+    </div>
+    <p style="margin-top:14px; font-size:0.8rem; color:#6b7280;">
+      This login only protects accidental access. Keep your GitHub token private.
+    </p>
+  </div>
+
+  <div id="adminApp" style="display:none;">
+    <div class="admin-shell">
+      <div class="admin-header">
+        <div class="admin-header-left">
+          <img src="images/logo-netpal-smm-white.png" alt="logo">
+          <div>
+            <div class="admin-title">NetPal SMM – Admin</div>
+            <div class="admin-sub">services.json editor (danibtr / NetpalSMM_website)</div>
+          </div>
+        </div>
+        <div style="text-align:right; font-size:0.8rem;">
+          <div id="adminUserEmail"></div>
+          <button class="btn-outline btn-sm" onclick="logoutGoogle()">Sign out</button>
         </div>
       </div>
-      <div id="userInfo" class="small"></div>
-    </div>
 
-    <!-- SIGN IN SECTION -->
-    <div id="loginSection" class="section">
-      <h2>Sign in</h2>
-      <p>Sign in with your Google account to manage <code>services.json</code>.</p>
-
-      <div id="g_id_onload"
-           data-client_id="886540598530-t5ocfg0jfa14vlv83qv0co8qrjnsbjt9.apps.googleusercontent.com"
-           data-callback="handleGoogleResponse"
-           data-context="signin"
-           data-auto_select="false"
-           data-itp_support="true">
-      </div>
-      <div class="g_id_signin"
-           data-type="standard"
-           data-shape="rectangular"
-           data-theme="outline"
-           data-text="signin_with"
-           data-size="large"
-           data-logo_alignment="left">
-      </div>
-
-      <p class="small" style="margin-top:12px;">
-        Tip: make sure this page is opened from<br>
-        <code>https://danibtr.github.io/NetpalSMM_website/admin.html</code>
+      <h2 style="font-size:1.05rem; margin-bottom:8px;">services.json editor</h2>
+      <p class="admin-sub">
+        Edit your services here. Make sure it stays valid JSON (you can use <a href="https://jsonlint.com" target="_blank" style="color:#38bdf8;">jsonlint.com</a> to check).
       </p>
-    </div>
 
-    <!-- ADMIN SECTION -->
-    <div id="adminSection" class="section hidden">
-      <h2>services.json editor</h2>
-      <p>Edit your services here. Make sure it stays valid JSON (you can use <a href="https://jsonlint.com" target="_blank">jsonlint.com</a> to check).</p>
+      <textarea id="editor" spellcheck="false"></textarea>
 
-      <div class="top-row">
-        <button class="btn" type="button" id="btnReload">
-          <i class="fa-solid fa-rotate-right"></i> Reload from GitHub
+      <div class="admin-buttons">
+        <button class="btn-outline btn-sm" onclick="reloadFromGitHub()">
+          <i class="fa-solid fa-rotate"></i> Reload from GitHub
         </button>
-        <button class="btn" type="button" id="btnSave">
+        <button class="btn btn-sm" onclick="saveToGitHub()">
           <i class="fa-solid fa-cloud-arrow-up"></i> Save to GitHub
         </button>
       </div>
 
-      <textarea id="jsonArea" spellcheck="false"></textarea>
-      <div id="status" class="status">Waiting…</div>
-
-      <p class="small" style="margin-top:8px;">
-        On first save, you will be asked for your <strong>GitHub personal access token</strong>.
-        It is only kept in memory in this browser tab and never stored in the code.
-      </p>
+      <div class="admin-status" id="statusLine">
+        Ready. Load services.json from GitHub.
+      </div>
     </div>
   </div>
 
   <script>
+    // ==== Google Sign-in handling ====
     const ALLOWED_EMAIL = "netpalsuper7@gmail.com";
+    let currentUserEmail = null;
 
-    const OWNER = "danibtr";
-    const REPO = "NetpalSMM_website";
-    const FILE_PATH = "services.json";
-    const BRANCH = "main"; // غيّرها لـ master إذا كان البرانش عندك master
-
-    let githubToken = null;
-    let fileSha = null;
-
-    const loginSection = document.getElementById('loginSection');
-    const adminSection = document.getElementById('adminSection');
-    const jsonArea = document.getElementById('jsonArea');
-    const statusEl = document.getElementById('status');
-    const userInfo = document.getElementById('userInfo');
-
-    function setStatus(msg, type) {
-      statusEl.textContent = msg;
-      statusEl.className = 'status ' + (type || '');
+    function parseJwt (token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      return JSON.parse(jsonPayload);
     }
 
-    function decodeJwt(token) {
-      const payload = token.split('.')[1];
-      const base64 = payload.replace(/-/g, '+').replace(/_/g, '/');
-      const json = atob(base64);
-      return JSON.parse(json);
-    }
-
-    // called by Google Identity
-    window.handleGoogleResponse = async function (response) {
+    window.handleCredentialResponse = function(response) {
       try {
-        const data = decodeJwt(response.credential);
-        if (data.email !== ALLOWED_EMAIL) {
-          alert("This admin is only for " + ALLOWED_EMAIL + ". You signed in as " + data.email);
+        const payload = parseJwt(response.credential);
+        const email = payload.email;
+        if (email !== ALLOWED_EMAIL) {
+          alert("This admin is restricted to " + ALLOWED_EMAIL);
           return;
         }
-        userInfo.textContent = data.email;
-        loginSection.classList.add('hidden');
-        adminSection.classList.remove('hidden');
-        setStatus("Signed in. Loading services.json from GitHub…");
-        await loadFromGithub();
+        currentUserEmail = email;
+        document.getElementById("adminUserEmail").textContent = email;
+        document.getElementById("loginView").style.display = "none";
+        document.getElementById("adminApp").style.display = "block";
+        reloadFromGitHub();
       } catch (e) {
         console.error(e);
-        alert("Error while processing Google login.");
+        alert("Google login failed. Please try again.");
       }
     };
 
-    async function gitFetch(path, options = {}) {
-      const url = `https://api.github.com/repos/${OWNER}/${REPO}${path}`;
-      const headers = Object.assign({
-        "Accept": "application/vnd.github+json"
-      }, options.headers || {});
-
-      if (githubToken) {
-        headers["Authorization"] = "Bearer " + githubToken;
-      }
-
-      const res = await fetch(url, Object.assign({}, options, { headers }));
-      return res;
+    function logoutGoogle() {
+      location.reload();
     }
 
-    async function loadFromGithub() {
+    // ==== GitHub API logic ====
+    const owner = "danibtr";
+    const repo = "NetpalSMM_website";
+    const filePath = "services.json";
+
+    let githubToken = null;
+    let currentSha = null;
+
+    const statusEl = document.getElementById("statusLine");
+    const editor = document.getElementById("editor");
+
+    async function ensureToken() {
+      if (!githubToken) {
+        githubToken = prompt("Paste your GitHub personal access token (it will be kept only in this tab):");
+      }
+      if (!githubToken) {
+        throw new Error("No GitHub token provided");
+      }
+    }
+
+    async function reloadFromGitHub() {
       try {
-        const res = await gitFetch(`/contents/${FILE_PATH}?ref=${BRANCH}`);
+        await ensureToken();
+        statusEl.textContent = "Loading from GitHub...";
+        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${filePath}?t=${Date.now()}`, {
+          headers: {
+            "Authorization": "token " + githubToken,
+            "Accept": "application/vnd.github+json"
+          }
+        });
         if (!res.ok) {
-          const t = await res.text();
-          throw new Error("GitHub GET failed: " + t);
+          throw new Error("GitHub error: " + res.status);
         }
-        const json = await res.json();
-        fileSha = json.sha;
-        const content = atob(json.content.replace(/\n/g, ''));
-        jsonArea.value = content;
-        setStatus("Loaded services.json from GitHub.", "ok");
+        const data = await res.json();
+        const content = atob(data.content.replace(/\n/g, ""));
+        currentSha = data.sha;
+        editor.value = content;
+        statusEl.textContent = "Loaded services.json from GitHub.";
       } catch (err) {
         console.error(err);
-        setStatus("Failed to load from GitHub. Check repo name/branch/path.", "err");
+        statusEl.textContent = "Error loading from GitHub: " + err.message;
       }
     }
 
-    async function saveToGithub() {
+    async function saveToGitHub() {
       try {
-        // تأكد إن JSON صحيح
-        let parsed;
+        await ensureToken();
+        // validate JSON first
         try {
-          parsed = JSON.parse(jsonArea.value);
+          JSON.parse(editor.value);
         } catch (e) {
-          alert("services.json is not valid JSON. Please fix it first.");
+          alert("JSON is not valid. Please fix it before saving.");
           return;
         }
-
-        if (!githubToken) {
-          githubToken = prompt("Enter your GitHub Personal Access Token:");
-          if (!githubToken) {
-            alert("Token is required to save.");
-            return;
-          }
-        }
-
-        if (!fileSha) {
-          await loadFromGithub();
-          if (!fileSha) throw new Error("Missing file SHA");
-        }
-
-        const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(parsed, null, 2))));
-
-        setStatus("Saving to GitHub…");
-        const res = await gitFetch(`/contents/${FILE_PATH}`, {
+        statusEl.textContent = "Saving to GitHub...";
+        const encoded = btoa(unescape(encodeURIComponent(editor.value)));
+        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`, {
           method: "PUT",
+          headers: {
+            "Authorization": "token " + githubToken,
+            "Accept": "application/vnd.github+json",
+            "Content-Type": "application/json"
+          },
           body: JSON.stringify({
             message: "Update services.json via NetPal SMM admin",
             content: encoded,
-            sha: fileSha,
-            branch: BRANCH
+            sha: currentSha
           })
         });
-
         if (!res.ok) {
-          const txt = await res.text();
-          throw new Error("GitHub PUT failed: " + txt);
+          throw new Error("GitHub error: " + res.status);
         }
-
         const data = await res.json();
-        fileSha = data.content.sha;
-        setStatus("Saved successfully to GitHub.", "ok");
-        alert("services.json updated successfully.");
+        currentSha = data.content.sha;
+        statusEl.textContent = "Saved successfully to GitHub.";
       } catch (err) {
         console.error(err);
-        setStatus("Error while saving: " + err.message, "err");
+        statusEl.textContent = "Error saving to GitHub: " + err.message;
       }
     }
-
-    document.getElementById('btnReload').addEventListener('click', loadFromGithub);
-    document.getElementById('btnSave').addEventListener('click', saveToGithub);
   </script>
 </body>
 </html>

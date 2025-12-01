@@ -3,12 +3,12 @@
     "id": "whatsapp-bulk",
     "title": "WhatsApp Bulk Messaging",
     "category": "WhatsApp",
-    "price": "From $50",
-    "description": "Send thousands of targeted WhatsApp messages to promote your SMM panel.",
+    "price": "From $40",
+    "description": "Send targeted WhatsApp messages at scale to promote your SMM panel.",
     "features": [
-      "Targeted by country",
-      "Custom message text",
-      "Basic campaign report"
+      "Targeted audiences by country",
+      "High delivery rate",
+      "Campaign performance summary"
     ],
     "highlight": true
   },
@@ -17,24 +17,24 @@
     "title": "WhatsApp Group Promotion",
     "category": "WhatsApp",
     "price": "Custom",
-    "description": "Grow marketing WhatsApp groups with relevant and active members.",
+    "description": "Grow and warm up WhatsApp groups with real engaged members.",
     "features": [
       "Real members",
-      "Niche targeting",
-      "Content posting support"
+      "Niche-specific groups",
+      "Content & posting strategy"
     ],
     "highlight": false
   },
   {
-    "id": "telegram-bulk",
+    "id": "telegram-campaigns",
     "title": "Telegram Campaigns",
     "category": "Telegram",
     "price": "From $60",
     "description": "Promote your SMM panel through Telegram channels and groups.",
     "features": [
-      "Channel + group mix",
-      "High-engagement audiences",
-      "Performance tracking"
+      "Top channels & groups",
+      "Brand-safe placements",
+      "Analytics & reports"
     ],
     "highlight": false
   },
@@ -42,8 +42,8 @@
     "id": "youtube-views",
     "title": "YouTube Views",
     "category": "YouTube",
-    "price": "From $40",
-    "description": "Boost video visibility with high-retention YouTube views.",
+    "price": "From $30",
+    "description": "Boost YouTube video visibility with high-retention views.",
     "features": [
       "Stable views",
       "Gradual delivery",
