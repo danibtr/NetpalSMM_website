@@ -1,42 +1,45 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>NetPal SMM | تسويق لوحة SMM ورفع التفاعل</title>
+  <title>NetPal SMM | Grow Your Social Media Presence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" href="images/logo-netpal-smm.png" type="image/png">
-  <link rel="apple-touch-icon" href="images/logo-netpal-smm.png">
 
+  <!-- Baloo Bhaijaan 2 -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+  <!-- Style -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-theme="dark">
+<body class="theme-dark">
 
   <!-- HEADER -->
   <header class="main-header">
     <div class="container header-inner">
       <div class="logo-area">
-        <img src="images/logo-netpal-smm.png" alt="NetPal SMM">
+        <img src="images/logo-netpal-smm.png" alt="NetPal SMM Logo">
         <span>NetPal SMM</span>
       </div>
+
       <nav class="main-nav" id="mainNav">
-        <a href="#hero">الرئيسية</a>
-        <a href="#services">الخدمات</a>
-        <a href="#gallery">الأعمال</a>
-        <a href="#contact">تواصل</a>
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Campaigns</a>
+        <a href="#pricing">Plans</a>
+        <a href="#contact">Contact</a>
       </nav>
+
       <div class="header-right">
-        <button class="theme-toggle" id="themeToggle" aria-label="بدّل الثيم">
-          <span id="themeIcon">🌙</span>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
         </button>
         <a href="https://wa.me/963993841762" target="_blank" class="btn-primary">
-          <i class="fa-brands fa-whatsapp"></i>
-          اطلب خدمة
+          <i class="fa-brands fa-whatsapp"></i> Order Now
         </a>
-        <button class="burger" id="burgerBtn" aria-label="القائمة">
+        <button class="burger" id="burgerBtn" aria-label="Menu">
           <span></span>
         </button>
       </div>
@@ -49,37 +52,43 @@
       <div>
         <div class="hero-badge">
           <i class="fa-solid fa-bolt"></i>
-          حلول تسويق متخصصة للـ SMM Panel
+          SMM Panel marketing made simple
         </div>
         <h1 class="hero-title">
-          خليك مشغول بالطلبات<br>واترك التسويق علينا
+          Grow Your Social Media<br> Presence & Panel Sales
         </h1>
         <p class="hero-sub">
-          NetPal SMM تساعدك في جذب عملاء جدد للوحة الـ SMM الخاصة بك من خلال حملات واتساب، تيليجرام، وإعلانات موجهة باحترافية.
+          NetPal SMM helps you sell your SMM panel services with targeted WhatsApp & Telegram campaigns,
+          social media ads, and high-converting landing flows.
         </p>
         <div class="hero-actions">
-          <a href="#services" class="btn-primary">
-            <i class="fa-solid fa-layer-group"></i>
-            اكتشف الخدمات
+          <a href="#pricing" class="btn-primary">
+            <i class="fa-solid fa-layer-group"></i> View Plans
           </a>
-          <a href="#contact" class="btn-outline">
-            <i class="fa-solid fa-circle-info"></i>
-            احجز مكالمة
+          <a href="#services" class="btn-outline">
+            <i class="fa-solid fa-circle-info"></i> Explore Services
           </a>
         </div>
         <div class="hero-meta">
-          <span><strong>+60</strong> لوحة SMM تم تسويقها</span>
-          <span><strong>+120</strong> حملة ناجحة</span>
+          <span><strong>120+</strong> campaigns launched</span>
+          <span><strong>60+</strong> SMM panels</span>
+          <span><strong>24/7</strong> support</span>
         </div>
       </div>
 
-      <div class="hero-card">
-        <div class="hero-card-header">
-          <span>أهم الخدمات</span>
-          <span><i class="fa-solid fa-circle" style="color:#15d15f;"></i> Live</span>
+      <div class="hero-media">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <span>Live Campaigns</span>
+            <span><i class="fa-solid fa-circle" style="color:#15d15f;"></i> Online</span>
+          </div>
+          <div class="hero-service-list" id="heroServicePreview">
+            <!-- Filled from services.json -->
+          </div>
         </div>
-        <div class="hero-service-list" id="heroServiceList">
-          <!-- سيتم تعبئتها من services.json (featured=true) -->
+        <div class="hero-highlight">
+          <i class="fa-solid fa-chart-line"></i>
+          Boost panel orders up to 3x
         </div>
       </div>
     </div>
@@ -89,12 +98,16 @@
   <section id="services" class="section">
     <div class="container reveal">
       <div class="section-header">
-        <h2>خدمات NetPal SMM</h2>
-        <p>اختر الخدمة الأنسب للوحة الـ SMM الخاصة بك.</p>
+        <h2>Core Services</h2>
+        <p>Everything you need to market your SMM panel.</p>
         <div class="section-line"></div>
       </div>
+
       <div class="services-grid" id="servicesGrid">
-        <!-- سيتم تعبئة البطاقات من services.json -->
+        <!-- Cards from services.json -->
+      </div>
+      <div id="servicesError" class="error-text" style="display:none;">
+        Failed to load services. Please check services.json.
       </div>
     </div>
   </section>
@@ -103,22 +116,73 @@
   <section id="gallery" class="section">
     <div class="container reveal">
       <div class="section-header">
-        <h2>نماذج من الحملات</h2>
-        <p>صور تجريبية يمكنك استبدالها لاحقاً بحملاتك الحقيقية.</p>
+        <h2>Campaign Snapshots</h2>
+        <p>Sample visuals to give you a feel of our work.</p>
         <div class="section-line"></div>
       </div>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="images/campaign-1.jpg" alt="WhatsApp Bulk">
+          <img src="images/campaign-1.jpg" alt="NetPal SMM Campaign 1">
         </div>
         <div class="gallery-item">
-          <img src="images/campaign-2.jpg" alt="WhatsApp Groups">
+          <img src="images/campaign-2.jpg" alt="NetPal SMM Campaign 2">
         </div>
         <div class="gallery-item">
-          <img src="images/campaign-3.jpg" alt="YouTube Views">
+          <img src="images/campaign-3.jpg" alt="NetPal SMM Campaign 3">
         </div>
         <div class="gallery-item">
-          <img src="images/campaign-4.jpg" alt="Social Media Growth">
+          <img src="images/campaign-4.jpg" alt="NetPal SMM Campaign 4">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <div class="container reveal">
+      <div class="section-header">
+        <h2>Panel-friendly Plans</h2>
+        <p>Choose a plan that matches your SMM panel size.</p>
+        <div class="section-line"></div>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <div class="price-amount">$50 <span>/ campaign</span></div>
+          <ul class="price-list">
+            <li>Up to 5,000 WhatsApp messages</li>
+            <li>1 creative + copywriting</li>
+            <li>Basic performance report</li>
+          </ul>
+          <a href="https://wa.me/963993841762" target="_blank" class="btn-primary" style="margin-top:10px;">
+            Get Starter
+          </a>
+        </div>
+        <div class="price-card highlight">
+          <div class="price-badge">Most Popular</div>
+          <h3>Growth</h3>
+          <div class="price-amount">$120 <span>/ month</span></div>
+          <ul class="price-list">
+            <li>WhatsApp + Telegram mix</li>
+            <li>Multiple monthly campaigns</li>
+            <li>Social media creatives</li>
+            <li>Detailed analytics</li>
+          </ul>
+          <a href="https://wa.me/963993841762" target="_blank" class="btn-primary" style="margin-top:10px;">
+            Choose Growth
+          </a>
+        </div>
+        <div class="price-card">
+          <h3>Pro Custom</h3>
+          <div class="price-amount">Custom <span>/ project</span></div>
+          <ul class="price-list">
+            <li>Country-level targeting</li>
+            <li>Multi-channel funnels</li>
+            <li>Custom landing flows</li>
+          </ul>
+          <a href="#contact" class="btn-outline" style="margin-top:10px;">
+            Talk to us
+          </a>
         </div>
       </div>
     </div>
@@ -128,20 +192,19 @@
   <section id="contact" class="section">
     <div class="container reveal">
       <div class="section-header">
-        <h2>تواصل معنا</h2>
-        <p>أخبرنا عن لوحة الـ SMM الخاصة بك، ونقترح عليك أفضل خطة تسويق.</p>
+        <h2>Contact</h2>
+        <p>Tell us about your SMM panel and what you want to achieve.</p>
         <div class="section-line"></div>
       </div>
 
       <div class="contact-wrapper">
         <div class="contact-info">
-          <p>تواصل معنا عبر واتساب أو عبر النموذج، وسنعود إليك بأسرع وقت.</p>
+          <p>Reach us directly via WhatsApp or send us a quick message from the form.</p>
           <a href="https://wa.me/963993841762" target="_blank" class="btn-primary">
-            <i class="fa-brands fa-whatsapp"></i>
-            تواصل واتساب
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Chat
           </a>
 
-          <h3 style="margin-top:22px; font-size:1rem;">تابعنا على السوشال</h3>
+          <h3 style="margin-top:22px; font-size:1rem;">Follow NetPal</h3>
           <div class="contact-links">
             <a href="https://t.me/net_pal" target="_blank" class="contact-btn">
               <i class="fa-brands fa-telegram"></i> Telegram
@@ -155,17 +218,17 @@
           </div>
         </div>
 
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('تم استلام رسالتك ✅');">
-          <label for="name">الاسم</label>
-          <input id="name" type="text" placeholder="اكتب اسمك" required>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! We received your message.');">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your full name" required>
 
-          <label for="panel">اسم لوحة الـ SMM</label>
-          <input id="panel" type="text" placeholder="مثال: bestpanel.com">
+          <label for="panel">SMM Panel URL</label>
+          <input id="panel" type="text" placeholder="example: yourpanel.com">
 
-          <label for="msg">ماذا تحتاج؟</label>
-          <textarea id="msg" placeholder="صف لنا نوع الحملات، الدول المستهدفة، الميزانية التقريبية..."></textarea>
+          <label for="msg">What do you need?</label>
+          <textarea id="msg" placeholder="Campaign type, countries, budget..."></textarea>
 
-          <button class="btn-primary" type="submit">إرسال</button>
+          <button class="btn-primary" type="submit">Send</button>
         </form>
       </div>
     </div>
@@ -174,40 +237,39 @@
   <!-- FOOTER -->
   <footer class="main-footer">
     <div class="container">
-      <p>جميع الحقوق محفوظة &copy; 2025 - NetPal SMM</p>
+      <p>© 2025 NetPal SMM – All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
-    // ========== THEME TOGGLE ==========
-    const body = document.body;
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'light' || savedTheme === 'dark') {
-      body.dataset.theme = savedTheme;
-      themeIcon.textContent = savedTheme === 'light' ? '☀️' : '🌙';
-    }
-
-    themeToggle.addEventListener('click', () => {
-      const current = body.dataset.theme === 'dark' ? 'dark' : 'light';
-      const next = current === 'dark' ? 'light' : 'dark';
-      body.dataset.theme = next;
-      themeIcon.textContent = next === 'light' ? '☀️' : '🌙';
-      localStorage.setItem('theme', next);
-    });
-
-    // ========== MOBILE NAV ==========
+    // Mobile menu
     const burger = document.getElementById('burgerBtn');
     const nav = document.getElementById('mainNav');
-
     burger.addEventListener('click', () => {
       nav.classList.toggle('open');
     });
 
-    // ========== REVEAL ON SCROLL ==========
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('netpal-theme');
+    if (savedTheme === 'light') {
+      body.classList.remove('theme-dark');
+      body.classList.add('theme-light');
+      themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('theme-dark');
+      body.classList.toggle('theme-light');
+      const isLight = body.classList.contains('theme-light');
+      themeToggle.innerHTML = isLight
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
+      localStorage.setItem('netpal-theme', isLight ? 'light' : 'dark');
+    });
+
+    // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -217,55 +279,55 @@
         }
       });
     }, { threshold: 0.18 });
-
     reveals.forEach(el => observer.observe(el));
 
-    // ========== LOAD SERVICES FROM services.json ==========
+    // Load services.json
     async function loadServices() {
       try {
-        const res = await fetch('services.json?' + Date.now());
-        if (!res.ok) throw new Error('Failed to load services.json');
+        const res = await fetch('services.json?cache=' + Date.now());
+        if (!res.ok) throw new Error('HTTP ' + res.status);
         const services = await res.json();
 
-        const servicesGrid = document.getElementById('servicesGrid');
-        const heroServiceList = document.getElementById('heroServiceList');
+        const grid = document.getElementById('servicesGrid');
+        const heroPreview = document.getElementById('heroServicePreview');
+        grid.innerHTML = '';
+        heroPreview.innerHTML = '';
 
-        servicesGrid.innerHTML = '';
-        heroServiceList.innerHTML = '';
-
-        services.forEach(service => {
-          // cards
+        services.forEach((svc, index) => {
+          // Services grid card
           const card = document.createElement('div');
           card.className = 'service-card';
           card.innerHTML = `
-            <div class="service-header">
-              <h3>${service.title}</h3>
-              <span class="service-badge">${service.category || 'Service'}</span>
+            <div class="service-icon">
+              <i class="fa-solid fa-bullhorn"></i>
             </div>
-            <p>${service.description || ''}</p>
-            <div class="service-footer">
-              <span>${service.priceLabel || ''}</span>
-              <a href="#contact" class="btn-outline" style="font-size:0.8rem;padding:6px 10px;">
-                اطلب الخدمة
-              </a>
+            <h3>${svc.title}</h3>
+            <p>${svc.description}</p>
+            <div class="service-meta">
+              <span>${svc.price || ''}</span>
+              <span>${svc.category || ''}</span>
+            </div>
+            <div class="service-actions">
+              <a href="https://wa.me/963993841762" target="_blank" class="btn-primary btn-sm">Order</a>
+              <a href="#contact" class="btn-outline btn-sm">Ask details</a>
             </div>
           `;
-          servicesGrid.appendChild(card);
+          grid.appendChild(card);
 
-          // featured in hero
-          if (service.featured) {
+          // hero preview (أول 3 خدمات بس)
+          if (index < 3) {
             const item = document.createElement('div');
             item.className = 'hero-service-item';
             item.innerHTML = `
-              <span>${service.title}</span>
-              <small>${service.priceLabel || ''}</small>
+              <span>${svc.title}</span>
+              <small>${svc.category || ''}</small>
             `;
-            heroServiceList.appendChild(item);
+            heroPreview.appendChild(item);
           }
         });
-
       } catch (err) {
-        console.error(err);
+        console.error('Failed to load services.json', err);
+        document.getElementById('servicesError').style.display = 'block';
       }
     }
 

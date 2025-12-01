@@ -1,38 +1,54 @@
 [
   {
-    "id": 1,
+    "id": "whatsapp-bulk",
     "title": "WhatsApp Bulk Messaging",
     "category": "WhatsApp",
     "price": "From $50",
-    "description": "Send targeted promotional messages to thousands of WhatsApp users.",
-    "image": "images/campaign-1.jpg",
-    "featured": true
+    "description": "Send thousands of targeted WhatsApp messages to promote your SMM panel.",
+    "features": [
+      "Targeted by country",
+      "Custom message text",
+      "Basic campaign report"
+    ],
+    "highlight": true
   },
   {
-    "id": 2,
+    "id": "whatsapp-groups",
     "title": "WhatsApp Group Promotion",
-    "category": "WhatsApp Groups",
-    "price": "Custom pricing",
-    "description": "Promote your offers inside high-engagement WhatsApp groups.",
-    "image": "images/campaign-2.jpg",
-    "featured": false
+    "category": "WhatsApp",
+    "price": "Custom",
+    "description": "Grow marketing WhatsApp groups with relevant and active members.",
+    "features": [
+      "Real members",
+      "Niche targeting",
+      "Content posting support"
+    ],
+    "highlight": false
   },
   {
-    "id": 3,
-    "title": "Telegram Channels & Groups",
+    "id": "telegram-bulk",
+    "title": "Telegram Campaigns",
     "category": "Telegram",
-    "price": "From $70",
-    "description": "Run campaigns through active Telegram channels and groups.",
-    "image": "images/campaign-3.jpg",
-    "featured": false
+    "price": "From $60",
+    "description": "Promote your SMM panel through Telegram channels and groups.",
+    "features": [
+      "Channel + group mix",
+      "High-engagement audiences",
+      "Performance tracking"
+    ],
+    "highlight": false
   },
   {
-    "id": 4,
-    "title": "YouTube Views & Campaigns",
+    "id": "youtube-views",
+    "title": "YouTube Views",
     "category": "YouTube",
     "price": "From $40",
-    "description": "Boost views and visibility for your YouTube videos.",
-    "image": "images/campaign-4.jpg",
-    "featured": false
+    "description": "Boost video visibility with high-retention YouTube views.",
+    "features": [
+      "Stable views",
+      "Gradual delivery",
+      "Safe methods"
+    ],
+    "highlight": false
   }
 ]
