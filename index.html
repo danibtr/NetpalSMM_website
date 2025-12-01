@@ -1,149 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <title>NetPal SMM | Home</title>
+  <title>NetPal SMM – Smart Marketing for SMM Panels</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- خط Baloo Bhaijaan 2 -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- أيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
   <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo-area">
-        <img src="images/logo-netpal-smm.png" alt="NetPal SMM">
-        <div class="logo-text">
-          <span>NetPal SMM</span>
-          <span>Smart marketing for SMM panels</span>
-        </div>
+        <img id="site-logo" src="images/logo-dark.png" alt="NetPal SMM Logo">
+        <span class="logo-text">NetPal SMM</span>
       </a>
 
-      <nav class="main-nav">
-        <a href="index.html" data-i18n="nav.home" class="active">Home</a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" data-i18n="nav.home">Home</a>
         <a href="services.html" data-i18n="nav.services">Services</a>
         <a href="pricing.html" data-i18n="nav.pricing">Pricing</a>
         <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="header-actions">
-        <button id="themeToggle" class="header-btn theme-toggle">Dark</button>
-        <button id="langToggle" class="header-btn lang-toggle">EN</button>
-        <a href="contact.html" class="header-btn btn-primary-small">Get started</a>
+        <!-- زر تغيير اللغة -->
+        <button class="icon-btn" id="langToggle" type="button">
+          <i class="fa-solid fa-globe"></i>
+          <span id="langCode">EN</span>
+        </button>
+        <!-- زر الثيم -->
+        <button class="icon-btn" id="themeToggle" type="button">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+        <!-- زر الموبايل -->
+        <button class="burger" id="burgerBtn" type="button" aria-label="Menu">
+          <span></span>
+        </button>
       </div>
-
-      <button class="burger" aria-label="Menu">
-        <span></span>
-      </button>
     </div>
   </header>
 
+  <!-- HERO + SLIDER -->
   <main>
-    <!-- HERO -->
     <section class="hero">
-      <div class="container hero-inner">
-        <div>
-          <div class="badge">
-            <span>Launch & grow your SMM Panel</span>
+      <div class="container hero-layout">
+        <div class="hero-text">
+          <div class="hero-badge" data-i18n="hero.badge">
+            Smart Marketing for SMM Panels
           </div>
           <h1 class="hero-title" data-i18n="hero.title">
-            Grow your SMM panel with real marketing, not just numbers.
+            Grow your SMM Panel<br>with real marketing, not fake numbers.
           </h1>
-          <p class="hero-sub" data-i18n="hero.sub">
-            NetPal SMM helps you bring real clients to your SMM panel using WhatsApp, Telegram, social ads and landing
-            pages.
+          <p class="hero-sub" data-i18n="hero.subtitle">
+            We build professional campaigns on WhatsApp, Telegram and social media
+            to bring real paying clients to your SMM panel.
           </p>
-          <div class="hero-actions">
-            <a href="pricing.html" class="btn-main" data-i18n="hero.cta.main">View plans</a>
-            <a href="services.html" class="btn-outline" data-i18n="hero.cta.secondary">See services</a>
+          <div class="hero-cta">
+            <a href="pricing.html" class="btn-primary" data-i18n="hero.cta.primary">
+              View pricing
+            </a>
+            <a href="services.html" class="btn-outline" data-i18n="hero.cta.secondary">
+              Explore services
+            </a>
           </div>
           <div class="hero-meta">
-            <span><strong>120+</strong> campaigns launched</span>
-            <span><strong>60+</strong> SMM panels helped</span>
-            <span><strong>24/7</strong> support</span>
+            <span data-i18n="hero.meta1"><strong>120+ </strong>campaigns delivered</span>
+            <span data-i18n="hero.meta2"><strong>60+ </strong>SMM panels served</span>
+            <span data-i18n="hero.meta3"><strong>24/7 </strong>support</span>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <span>NetPal SMM campaigns</span>
-            <span>Live status</span>
-          </div>
-          <div class="hero-services-preview">
-            <div class="hero-service-item">
-              <span>WhatsApp bulk messaging</span>
-              <small>Country targeted lists</small>
+        <!-- SLIDER إعلانات الزبائن -->
+        <div class="hero-slider-wrapper">
+          <div class="slider" id="homeSlider">
+            <div class="slide active">
+              <img src="images/slider-1.jpg" alt="Client campaign slide 1">
+              <div class="slide-overlay">
+                <h3>WhatsApp Bulk Promotion</h3>
+                <p>Perfect for promoting your SMM panel to targeted audiences.</p>
+              </div>
             </div>
-            <div class="hero-service-item">
-              <span>Telegram groups & channels</span>
-              <small>Active, real audiences</small>
+            <div class="slide">
+              <img src="images/slider-2.jpg" alt="Client campaign slide 2">
+              <div class="slide-overlay">
+                <h3>Telegram Groups Advertising</h3>
+                <p>Reach active Telegram groups with strong engagement.</p>
+              </div>
             </div>
-            <div class="hero-service-item">
-              <span>SMM panel promo funnels</span>
-              <small>Landing + ads + follow-up</small>
+            <div class="slide">
+              <img src="images/slider-3.jpg" alt="Client campaign slide 3">
+              <div class="slide-overlay">
+                <h3>Full SMM Panel Launch</h3>
+                <p>Branding, landing page and marketing for new panels.</p>
+              </div>
             </div>
+
+            <!-- أزرار السلايدر -->
+            <button class="slider-btn prev" type="button" data-slider-prev>
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slider-btn next" type="button" data-slider-next>
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <div class="slider-dots" id="sliderDots"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- simple section example -->
+    <!-- قسم مختصر عن الخدمات (تيزر بس) -->
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Why NetPal SMM?</h2>
-          <p class="section-sub">
-            We focus on bringing real customers to your SMM panel, not just sending traffic without results.
+          <h2 data-i18n="home.servicesTitle">What we do for your SMM panel</h2>
+          <p data-i18n="home.servicesSub">
+            We drive real traffic and orders to your panel with targeted campaigns and clean design.
           </p>
+          <div class="section-line"></div>
         </div>
-        <div class="card-grid-3">
-          <div class="card">
-            <h3>Real strategy</h3>
-            <p>We study your panel, target countries and services to create a clear marketing plan.</p>
-          </div>
-          <div class="card">
-            <h3>Multi-channel</h3>
-            <p>WhatsApp, Telegram, social ads and landing pages working together for better conversion.</p>
-          </div>
-          <div class="card">
-            <h3>Transparent reports</h3>
-            <p>You receive simple reports for every campaign so you can see what is working.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- gallery -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Campaign snapshots</h2>
-          <p class="section-sub">A quick look at some types of campaigns we can run for your SMM panel.</p>
-        </div>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="images/campaign-1.jpg" alt="WhatsApp bulk campaign">
-          </div>
-          <div class="gallery-item">
-            <img src="images/campaign-2.jpg" alt="WhatsApp groups">
-          </div>
-          <div class="gallery-item">
-            <img src="images/campaign-3.jpg" alt="Telegram promo">
-          </div>
-          <div class="gallery-item">
-            <img src="images/campaign-4.jpg" alt="SMM panel promo">
-          </div>
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h3>WhatsApp Campaigns</h3>
+            <p>Bulk messages, groups, and broadcast campaigns tailored to your niche.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-telegram"></i>
+            </div>
+            <h3>Telegram Groups & Channels</h3>
+            <p>Promotion inside active groups and channels that fit your audience.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">
+              <i class="fa-solid fa-bullhorn"></i>
+            </div>
+            <h3>Panel Marketing & Branding</h3>
+            <p>Landing pages, branding and creatives that actually sell your services.</p>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 NetPal SMM. All rights reserved.</p>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> NetPal SMM. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://t.me/net_pal" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+        <a href="https://instagram.com/net.pal22" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/19sGfeEVo9/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
     </div>
   </footer>
-
-  <script src="app.js"></script>
 </body>
 </html>
